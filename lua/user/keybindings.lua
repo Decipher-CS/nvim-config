@@ -4,7 +4,7 @@ local term_opts = { silent = true }
 
 -- Shorten function name
 local keymap = vim.api.nvim_set_keymap
-
+keymap("n", "<C-/>", "gcc", opts)
 --Remap space as leader key
 keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
@@ -17,6 +17,17 @@ vim.g.maplocalleader = " "
 --   visual_block_mode = "x",
 --   term_mode = "t",
 --   command_mode = "c",
+
+
+-- ALL n/i/v/x/t/c
+-- Press lk fast to exit insert mode 
+keymap("i", "lk", "<ESC>", opts)
+keymap("v", "lk", "<ESC>", opts)
+keymap("n", "lk", "<ESC>", opts)
+keymap("x", "lk", "<ESC>", opts)
+keymap("t", "lk", "<ESC>", opts)
+keymap("c", "lk", "<ESC>", opts)
+
 
 -- Normal --
 -- Better window navigation
@@ -39,12 +50,16 @@ keymap("n", "<S-h>", ":bprevious<CR>", opts)
 keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
 keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
 
+-- Telescope quick launch
+keymap("n", "<leader>f", "<cmd>Telescope find_files<cr>", opts)
+keymap("n", "<c-t>", "<cmd>Telescope live_grep<cr>", opts)
+
+-- NvimTree
+keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
+keymap("n", "<S-Q>", ":Bdelete<cr>", opts)
 -- Insert --
--- Press lk fast to exit insert mode 
-keymap("i", "lk", "<ESC>", opts)
-keymap("v", "lk", "<ESC>", opts)
-keymap("n", "lk", "<ESC>", opts)
-keymap("x", "lk", "<ESC>", opts)
+-- ctrl+backspace to delete the word
+keymap("i", "<C-h>", "<C-W>", term_opts)
 
 -- Visual --
 -- Stay in indent mode
@@ -69,4 +84,3 @@ keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
 keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
 keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
-

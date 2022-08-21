@@ -1,6 +1,17 @@
-require "user.telescope"
+vim.cmd('colorscheme vim-monokai-tasty')
 require "user.keybindings"
 require "user.options"
 require "user.plugins"
-
-require('palenightfall').setup()
+require "user.telescope"
+require "user.cmp"
+require "user.lsp"
+require "user.treesitter"
+require "user.autopairs"
+require "user.comment"
+require "user.tree"
+require "user.bufferline"
+require "user.toggleterm"
+require "user.lualine"
+require "user.indentline"
+require "user.whichkey"
+require "user.illuminate"

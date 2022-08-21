@@ -2,3 +2,5 @@ plugin/**
 *.swap
 *.swp
 *swap
+*temp_hold
+*test*
