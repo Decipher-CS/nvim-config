@@ -26,7 +26,7 @@ vim.cmd([[
 -- Use a protected call so we don't error out on first use
 local status_ok, packer = pcall(require, "packer")
 if not status_ok then
-  print("Something wrong with the package. I think...???")
+	print("Something wrong with the package. I think...???")
 	return
 end
 
@@ -36,7 +36,7 @@ packer.init({
 		open_fn = function()
 			return require("packer.util").float({ border = "rounded" })
 		end,
-      show_all_info = true,
+		show_all_info = true,
 	},
 })
 
@@ -46,13 +46,16 @@ return packer.startup(function(use)
 
 	use({ "wbthomason/packer.nvim", commit = "00ec5adef58c5ff9a07f11f45903b9dbbaa1b422" }) -- Have packer manage itself
 	use({ "nvim-lua/plenary.nvim", commit = "968a4b9afec0c633bc369662e78f8c5db0eba249" }) -- Useful lua functions used by lots of plugins
-        use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
-        use "numToStr/Comment.nvim" -- Make comments
+	use("windwp/nvim-autopairs") -- Autopairs, integrates with both cmp and treesitter
+	use({ "numToStr/Comment.nvim", commit = "2c26a00f32b190390b664e56e32fd5347613b9e2" })
+
+	use("https://gitlab.com/yorickpeterse/nvim-window") -- Better switching between splits with visual ques
+
 	use({ "kyazdani42/nvim-web-devicons", commit = "8d2c5337f0a2d0a17de8e751876eeb192b32310e" })
 	use({ "kyazdani42/nvim-tree.lua", commit = "bdb6d4a25410da35bbf7ce0dbdaa8d60432bc243" })
 	use({ "akinsho/bufferline.nvim", commit = "c78b3ecf9539a719828bca82fc7ddb9b3ba0c353" })
 	-- visit this
-        use({ "moll/vim-bbye", commit = "25ef93ac5a87526111f43e5110675032dbcacf56" })
+	use({ "moll/vim-bbye", commit = "25ef93ac5a87526111f43e5110675032dbcacf56" })
 	-- visit this
 	use({ "nvim-lualine/lualine.nvim", commit = "3362b28f917acc37538b1047f187ff1b5645ecdd" })
 	use({ "akinsho/toggleterm.nvim", commit = "aaeed9e02167c5e8f00f25156895a6fd95403af8" })
@@ -66,18 +69,23 @@ return packer.startup(function(use)
 	-- visit this
 	use("folke/which-key.nvim")
 
-  -- Telescope
-	use{'nvim-telescope/telescope.nvim'}
-        use"nvim-telescope/telescope-media-files.nvim" -- Preview images in teleschope. ~~( 。・o・)💗~~
 
-  -- Colorschemes
-  use('JoosepAlviste/palenightfall.nvim')
-  use "EdenEast/nightfox.nvim" -- nordFos
-  use "ellisonleao/gruvbox.nvim" -- gruvbox
-  use 'patstockwell/vim-monokai-tasty'
+	-- Telescope
+	-- use({ "nvim-telescope/telescope.nvim" })
+        use { "nvim-telescope/telescope.nvim", commit = "d96eaa914aab6cfc4adccb34af421bdd496468b0" }
+        -- use("nvim-telescope/telescope-media-files.nvim") -- Preview images in teleschope. ~~( 。・o・)💗~~
+        -- use "yatli/gui-widgets.nvim"
 
-        -- Visual flair
-        use "RRethy/vim-illuminate"     -- Highlight all instensis of similar text
+
+
+	-- Colorschemes
+	use("JoosepAlviste/palenightfall.nvim")
+	use("EdenEast/nightfox.nvim") -- nordFos
+	use("ellisonleao/gruvbox.nvim") -- gruvbox
+	use("patstockwell/vim-monokai-tasty")
+
+	-- Visual flair
+	use("RRethy/vim-illuminate") -- Highlight all instensis of similar text
 
 	-- cmp plugins
 	use({ "hrsh7th/nvim-cmp", commit = "df6734aa018d6feb4d76ba6bda94b1aeac2b378a" }) -- The completion plugin
@@ -92,29 +100,34 @@ return packer.startup(function(use)
 	use({ "rafamadriz/friendly-snippets", commit = "d27a83a363e61009278b6598703a763ce9c8e617" }) -- a bunch of snippets to use
 
 	-- LSP
-	use({ "williamboman/nvim-lsp-installer", commit = "e9f13d7acaa60aff91c58b923002228668c8c9e6" }) -- simple to use language server installer
+	--[[ use({ "williamboman/nvim-lsp-installer", commit = "e9f13d7acaa60aff91c58b923002228668c8c9e6" }) -- simple to use language server installer  No Longer maintained ]]
+	use({ "williamboman/mason.nvim" })
+	use("williamboman/mason-lspconfig.nvim")
 	use({ "neovim/nvim-lspconfig", commit = "148c99bd09b44cf3605151a06869f6b4d4c24455" }) -- enable LSP
-        use { "jose-elias-alvarez/null-ls.nvim", commit = "ff40739e5be6581899b43385997e39eecdbf9465" } -- for formatters and linters
-        -- nvim-lsp-installer is depricated. Need to switch to mason.
---[[   
-        --use {
-            "williamboman/mason.nvim",
-            "williamboman/mason-lspconfig.nvim",
-            "neovim/nvim-lspconfig",
-          }
- ]]
+	use({ "jose-elias-alvarez/null-ls.nvim", commit = "ff40739e5be6581899b43385997e39eecdbf9465" }) -- for formatters and linters
 
-        -- Multiple cursors
-        use"mg979/vim-visual-multi"
+	-- Multiple cursors
+	use("mg979/vim-visual-multi")
+
+	-- DAP (Debug Adapter Protocol)
+	use("mfussenegger/nvim-dap")
+	use("mfussenegger/nvim-dap-python")
+	use("rcarriga/nvim-dap-ui")
+	use("https://github.com/ravenxrz/DAPInstall.nvim")
+	--[[ use "microsoft/vscode-mock-debug" ]]
+
+	use("CRAG666/code_runner.nvim")
 
 	-- Treesitter
 	use({
 		"nvim-treesitter/nvim-treesitter",
-                run = ":TSUpdate",
-                "p00f/nvim-ts-rainbow",
-	        "JoosepAlviste/nvim-ts-context-commentstring"
+		commit = "518e27589c0463af15463c9d675c65e464efc2fe",
 	})
-	-- Git
+	use("p00f/nvim-ts-rainbow")
+	use("JoosepAlviste/nvim-ts-context-commentstring")
+
+
+        -- Git
 	--use({ "lewis6991/gitsigns.nvim", commit = "c18e016864c92ecf9775abea1baaa161c28082c3" })
 
 	-- Automatically set up your configuration after cloning packer.nvim

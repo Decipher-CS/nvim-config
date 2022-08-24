@@ -1,17 +1,24 @@
-vim.cmd('colorscheme vim-monokai-tasty')
-require "user.keybindings"
-require "user.options"
-require "user.plugins"
-require "user.telescope"
-require "user.cmp"
-require "user.lsp"
-require "user.treesitter"
-require "user.autopairs"
-require "user.comment"
-require "user.tree"
-require "user.bufferline"
-require "user.toggleterm"
-require "user.lualine"
-require "user.indentline"
-require "user.whichkey"
-require "user.illuminate"
+vim.cmd("colorscheme vim-monokai-tasty")
+require("user.keybindings")
+require("user.options")
+require("user.plugins")
+require("user.telescope")
+require("user.cmp")
+require("user.lsp")
+require("user.treesitter")
+require("user.autopairs")
+require("user.comment")
+require("user.tree")
+require("user.bufferline")
+require("user.toggleterm")
+require("user.lualine")
+require("user.indentline")
+require("user.whichkey")
+require("user.illuminate")
+require("user.dap")
+require("user.autocommands")
+require("user.alpha")
+require("user.project")
+require("user.impatient")
+require("user.coderunner")
+require("user.window")

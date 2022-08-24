@@ -19,7 +19,7 @@ local options = {
   termguicolors = true,                    -- set term gui colors (most terminals support this)
 
         -- changed from 100 to 500. 100 was to fast.
-  timeoutlen = 100,                        -- time to wait for a mapped sequence to complete (in milliseconds)
+  timeoutlen = 500,                        -- time to wait for a mapped sequence to complete (in milliseconds)
   undofile = true,                         -- enable persistent undo
   updatetime = 300,                        -- faster completion (4000ms default)
   writebackup = false,                     -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited

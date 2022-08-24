@@ -19,7 +19,8 @@ vim.g.maplocalleader = " "
 --   command_mode = "c",
 
 
--- ALL n/i/v/x/t/c
+--[[ -- ALL n/i/v/x/t/c ]]
+
 -- Press lk fast to exit insert mode 
 keymap("i", "lk", "<ESC>", opts)
 keymap("v", "lk", "<ESC>", opts)
@@ -29,7 +30,28 @@ keymap("t", "lk", "<ESC>", opts)
 keymap("c", "lk", "<ESC>", opts)
 
 
--- Normal --
+
+
+--[[ -- Normal --s]]
+
+-- Comment
+keymap("n", "<C-_>", "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>", opts)
+keymap("x", "<C-_>", '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>', opts)
+
+-- DAP
+keymap("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", opts)
+keymap("n", "<leader>dc", "<cmd>lua require'dap'.continue()<cr>", opts)
+keymap("n", "<leader>di", "<cmd>lua require'dap'.step_into()<cr>", opts)
+keymap("n", "<leader>do", "<cmd>lua require'dap'.step_over()<cr>", opts)
+keymap("n", "<leader>dO", "<cmd>lua require'dap'.step_out()<cr>", opts)
+keymap("n", "<leader>dr", "<cmd>lua require'dap'.repl.toggle()<cr>", opts)
+keymap("n", "<leader>dl", "<cmd>lua require'dap'.run_last()<cr>", opts)
+keymap("n", "<leader>du", "<cmd>lua require'dapui'.toggle()<cr>", opts)
+keymap("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", opts)
+
+-- source lua fils
+keymap("n", "<leader><leader>x", ":w | source %<CR>", opts)
+
 -- Better window navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
@@ -61,7 +83,13 @@ keymap("n", "<S-Q>", ":Bdelete<cr>", opts)
 -- ctrl+backspace to delete the word
 keymap("i", "<C-h>", "<C-W>", term_opts)
 
--- Visual --
+
+
+
+
+--[[ -- Visual -- ]]
+
+
 -- Stay in indent mode
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
@@ -71,16 +99,29 @@ keymap("v", "<A-j>", ":m .+1<CR>==", opts)
 keymap("v", "<A-k>", ":m .-2<CR>==", opts)
 keymap("v", "p", '"_dP', opts)
 
--- Visual Block --
+
+
+
+
+--[[ -- Visual Block -- ]]
+
+
 -- Move text up and down
 keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
--- Terminal --
+
+
+
+--[[ -- Terminal -- ]]
+
 -- Better terminal navigation
 keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
 keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
 keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
+
+
+

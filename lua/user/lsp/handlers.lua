@@ -61,8 +61,8 @@ local function lsp_keymaps(bufnr)
   keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
         -- change to show on hover as well as on keypress gl
   keymap(bufnr, "n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
-  vim.cmd [[autocmd CursorHold * silent! lua vim.lsp.diagnostic.show_line_diagnostics()]]
-  vim.cmd [[autocmd CursorHoldI * silent! lua vim.lsp.buf.signature_help()]]
+  --[[ vim.cmd [[autocmd CursorHold * silent! lua vim.lsp.diagnostic.show_line_diagnostics()]] 
+  --[[ vim.cmd [[autocmd CursorHoldI * silent! lua vim.lsp.buf.signature_help() ]] 
   keymap(bufnr, "n", "<leader>lf", "<cmd>lua vim.lsp.buf.formatting()<cr>", opts)
   keymap(bufnr, "n", "<leader>li", "<cmd>LspInfo<cr>", opts)
   keymap(bufnr, "n", "<leader>lI", "<cmd>LspInstallInfo<cr>", opts)
