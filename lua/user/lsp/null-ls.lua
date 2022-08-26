@@ -18,13 +18,15 @@ null_ls.setup({
 			extra_filetypes = { "toml" },
 			extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
 		}),
-		formatting.black.with({ extra_args = { "--fast" } }),
+		-- formatting.black.with({ extra_args = { "--fast" } }),
 		formatting.stylua,
 		formatting.autopep8,
 		formatting.google_java_format,
 
 		-- diagnostics
-		diagnostics.flake8,
+		-- diagnostics.flake8,
+		diagnostics.mypy,
+                diagnostics.codespell
 
 		-- codeaction
 	},

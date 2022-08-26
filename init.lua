@@ -1,3 +1,4 @@
+vim.o.guicursor = "n-v-ve-o-r-sm:hor100,i:ver100,a:blinkwait1-blinkoff10-blinkon50"
 vim.cmd("colorscheme vim-monokai-tasty")
 require("user.keybindings")
 require("user.options")
@@ -20,5 +21,6 @@ require("user.autocommands")
 require("user.alpha")
 require("user.project")
 require("user.impatient")
-require("user.coderunner")
 require("user.window")
+require("user.coderunner")
+require("user.colorizer")

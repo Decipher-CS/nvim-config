@@ -18,19 +18,15 @@ vim.g.maplocalleader = " "
 --   term_mode = "t",
 --   command_mode = "c",
 
-
 --[[ -- ALL n/i/v/x/t/c ]]
 
--- Press lk fast to exit insert mode 
+-- Press lk fast to exit insert mode
 keymap("i", "lk", "<ESC>", opts)
-keymap("v", "lk", "<ESC>", opts)
-keymap("n", "lk", "<ESC>", opts)
-keymap("x", "lk", "<ESC>", opts)
+-- keymap("v", "lk", "<ESC>", opts)
+-- keymap("n", "lk", "<ESC>", opts) -- Don't do this. pressing l in normal mode waits for keybinding instead of moving to the right which is the normal biehaviour
+-- keymap("x", "lk", "<ESC>", opts)
 keymap("t", "lk", "<ESC>", opts)
 keymap("c", "lk", "<ESC>", opts)
-
-
-
 
 --[[ -- Normal --s]]
 
@@ -49,8 +45,8 @@ keymap("n", "<leader>dl", "<cmd>lua require'dap'.run_last()<cr>", opts)
 keymap("n", "<leader>du", "<cmd>lua require'dapui'.toggle()<cr>", opts)
 keymap("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", opts)
 
--- source lua fils
-keymap("n", "<leader><leader>x", ":w | source %<CR>", opts)
+-- source lua files
+keymap("n", "<leader><leader>x", ":e<CR>", opts)
 
 -- Better window navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
@@ -83,12 +79,7 @@ keymap("n", "<S-Q>", ":Bdelete<cr>", opts)
 -- ctrl+backspace to delete the word
 keymap("i", "<C-h>", "<C-W>", term_opts)
 
-
-
-
-
 --[[ -- Visual -- ]]
-
 
 -- Stay in indent mode
 keymap("v", "<", "<gv", opts)
@@ -99,21 +90,13 @@ keymap("v", "<A-j>", ":m .+1<CR>==", opts)
 keymap("v", "<A-k>", ":m .-2<CR>==", opts)
 keymap("v", "p", '"_dP', opts)
 
-
-
-
-
 --[[ -- Visual Block -- ]]
-
 
 -- Move text up and down
 keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
-
-
-
 
 --[[ -- Terminal -- ]]
 
@@ -122,6 +105,3 @@ keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
 keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
 keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
-
-
-

@@ -49,7 +49,7 @@ return packer.startup(function(use)
 	use("windwp/nvim-autopairs") -- Autopairs, integrates with both cmp and treesitter
 	use({ "numToStr/Comment.nvim", commit = "2c26a00f32b190390b664e56e32fd5347613b9e2" })
 
-	use("https://gitlab.com/yorickpeterse/nvim-window") -- Better switching between splits with visual ques
+	use("https://gitlab.com/yorickpeterse/nvim-window") -- Better switching between splits with visual queues
 
 	use({ "kyazdani42/nvim-web-devicons", commit = "8d2c5337f0a2d0a17de8e751876eeb192b32310e" })
 	use({ "kyazdani42/nvim-tree.lua", commit = "bdb6d4a25410da35bbf7ce0dbdaa8d60432bc243" })
@@ -69,14 +69,11 @@ return packer.startup(function(use)
 	-- visit this
 	use("folke/which-key.nvim")
 
-
 	-- Telescope
+	use({ "nvim-telescope/telescope.nvim", commit = "d96eaa914aab6cfc4adccb34af421bdd496468b0" })
 	-- use({ "nvim-telescope/telescope.nvim" })
-        use { "nvim-telescope/telescope.nvim", commit = "d96eaa914aab6cfc4adccb34af421bdd496468b0" }
-        -- use("nvim-telescope/telescope-media-files.nvim") -- Preview images in teleschope. ~~( 。・o・)💗~~
-        -- use "yatli/gui-widgets.nvim"
-
-
+	-- use("nvim-telescope/telescope-media-files.nvim") -- Preview images in teleschope. ~~( 。・o・)💗~~
+	-- use "yatli/gui-widgets.nvim"
 
 	-- Colorschemes
 	use("JoosepAlviste/palenightfall.nvim")
@@ -86,6 +83,9 @@ return packer.startup(function(use)
 
 	-- Visual flair
 	use("RRethy/vim-illuminate") -- Highlight all instensis of similar text
+	use("norcalli/nvim-colorizer.lua")
+	use("https://git.sr.ht/~whynothugo/lsp_lines.nvim")
+
 
 	-- cmp plugins
 	use({ "hrsh7th/nvim-cmp", commit = "df6734aa018d6feb4d76ba6bda94b1aeac2b378a" }) -- The completion plugin
@@ -116,18 +116,19 @@ return packer.startup(function(use)
 	use("https://github.com/ravenxrz/DAPInstall.nvim")
 	--[[ use "microsoft/vscode-mock-debug" ]]
 
+	-- Run code
 	use("CRAG666/code_runner.nvim")
 
 	-- Treesitter
 	use({
 		"nvim-treesitter/nvim-treesitter",
 		commit = "518e27589c0463af15463c9d675c65e464efc2fe",
+                -- commit = "5bc96f02b81ea6750baaeeab7880204c8c3bac56",
 	})
 	use("p00f/nvim-ts-rainbow")
 	use("JoosepAlviste/nvim-ts-context-commentstring")
 
-
-        -- Git
+	-- Git
 	--use({ "lewis6991/gitsigns.nvim", commit = "c18e016864c92ecf9775abea1baaa161c28082c3" })
 
 	-- Automatically set up your configuration after cloning packer.nvim
