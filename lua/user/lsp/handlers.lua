@@ -60,7 +60,7 @@ local function lsp_keymaps(bufnr)
 	keymap(bufnr, "n", "gI", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
 	keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
 	-- change to show on hover as well as on keypress gl
-	-- keymap(bufnr, "n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
+	keymap(bufnr, "n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
 	vim.cmd([[autocmd CursorHold * lua vim.diagnostic.open_float({focusable = false})]])
 	vim.cmd([[autocmd CursorHoldI * lua vim.diagnostic.open_float({focusable = false})]])
 

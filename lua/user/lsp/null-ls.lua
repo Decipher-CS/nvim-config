@@ -16,17 +16,20 @@ null_ls.setup({
 	sources = {
 		formatting.prettier.with({
 			extra_filetypes = { "toml" },
-			extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
+			extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote", "--tab-width=8" },
 		}),
 		-- formatting.black.with({ extra_args = { "--fast" } }),
 		formatting.stylua,
-		formatting.autopep8,
+		-- formatting.autopep8,
 		formatting.google_java_format,
 
 		-- diagnostics
-		-- diagnostics.flake8,
-		diagnostics.mypy,
-                diagnostics.codespell
+		diagnostics.flake8.with({
+                        extra_args = {"--max-line-length=null"}
+                }),
+		-- diagnostics.mypy,
+                diagnostics.codespell,
+                diagnostics.markdownlint
 
 		-- codeaction
 	},

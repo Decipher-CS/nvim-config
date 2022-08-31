@@ -26,7 +26,7 @@ vim.cmd([[
 -- Use a protected call so we don't error out on first use
 local status_ok, packer = pcall(require, "packer")
 if not status_ok then
-	print("Something wrong with the package. I think...???")
+	print("Packer not working")
 	return
 end
 
@@ -54,23 +54,28 @@ return packer.startup(function(use)
 	use({ "kyazdani42/nvim-web-devicons", commit = "8d2c5337f0a2d0a17de8e751876eeb192b32310e" })
 	use({ "kyazdani42/nvim-tree.lua", commit = "bdb6d4a25410da35bbf7ce0dbdaa8d60432bc243" })
 	use({ "akinsho/bufferline.nvim", commit = "c78b3ecf9539a719828bca82fc7ddb9b3ba0c353" })
-	-- visit this
 	use({ "moll/vim-bbye", commit = "25ef93ac5a87526111f43e5110675032dbcacf56" })
 	-- visit this
 	use({ "nvim-lualine/lualine.nvim", commit = "3362b28f917acc37538b1047f187ff1b5645ecdd" })
-	use({ "akinsho/toggleterm.nvim", commit = "aaeed9e02167c5e8f00f25156895a6fd95403af8" })
+	-- use({ "akinsho/toggleterm.nvim", commit = "aaeed9e02167c5e8f00f25156895a6fd95403af8" })
+	use("akinsho/toggleterm.nvim")
 	--use({ "ahmedkhalf/project.nvim", commit = "541115e762764bc44d7d3bf501b6e367842d3d4f" })
 	-- visit this
 	use({ "lewis6991/impatient.nvim", commit = "969f2c5c90457612c09cf2a13fee1adaa986d350" })
 	-- visit this
 	use({ "lukas-reineke/indent-blankline.nvim", commit = "6177a59552e35dfb69e1493fd68194e673dc3ee2" })
-	-- visit this
 	use({ "goolord/alpha-nvim", commit = "ef27a59e5b4d7b1c2fe1950da3fe5b1c5f3b4c94" })
 	-- visit this
 	use("folke/which-key.nvim")
 
+	use("iamcco/markdown-preview.nvim") -- Markdown preview
+
+	-- Sessions
+	use("rmagatti/auto-session")
+
 	-- Telescope
 	use({ "nvim-telescope/telescope.nvim", commit = "d96eaa914aab6cfc4adccb34af421bdd496468b0" })
+	use("rmagatti/session-lens") -- auto-session assistant
 	-- use({ "nvim-telescope/telescope.nvim" })
 	-- use("nvim-telescope/telescope-media-files.nvim") -- Preview images in teleschope. ~~( 。・o・)💗~~
 	-- use "yatli/gui-widgets.nvim"
@@ -86,6 +91,13 @@ return packer.startup(function(use)
 	use("norcalli/nvim-colorizer.lua")
 	use("https://git.sr.ht/~whynothugo/lsp_lines.nvim")
 
+	-- Folds and Marks
+	use("anuvyklack/pretty-fold.nvim")
+	use("anuvyklack/fold-preview.nvim") -- Preview the content of the folds without opening them
+	use("anuvyklack/keymap-amend.nvim") -- No idea why but it is required for the fold preview plugin. uuffff
+	use("beauwilliams/focus.nvim")
+	use("chentoast/marks.nvim") -- Put marks on gutter
+	use("sindrets/winshift.nvim") -- Rearrange splits
 
 	-- cmp plugins
 	use({ "hrsh7th/nvim-cmp", commit = "df6734aa018d6feb4d76ba6bda94b1aeac2b378a" }) -- The completion plugin
@@ -123,11 +135,10 @@ return packer.startup(function(use)
 	use({
 		"nvim-treesitter/nvim-treesitter",
 		commit = "518e27589c0463af15463c9d675c65e464efc2fe",
-                -- commit = "5bc96f02b81ea6750baaeeab7880204c8c3bac56",
+		-- commit = "5bc96f02b81ea6750baaeeab7880204c8c3bac56",
 	})
 	use("p00f/nvim-ts-rainbow")
 	use("JoosepAlviste/nvim-ts-context-commentstring")
-
 	-- Git
 	--use({ "lewis6991/gitsigns.nvim", commit = "c18e016864c92ecf9775abea1baaa161c28082c3" })
 

@@ -4,6 +4,8 @@ if not status_ok then
 	return
 end
 
+-- Quickly switch to a split --
+
 local keymap = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 keymap("n", "<leader><leader>s", ":lua require('nvim-window').pick()<CR>", opts)
