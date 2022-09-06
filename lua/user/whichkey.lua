@@ -44,7 +44,7 @@ local setup = {
 	},
 	window = {
 		border = "rounded", -- none, single, double, shadow
-		position = "bottom", -- bottom, top
+		position = "float", -- bottom, top
 		margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]
 		padding = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]
 		winblend = 0,
@@ -85,8 +85,9 @@ local mappings = {
 		"Buffers",
 	},
 	["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
-	["w"] = { "<cmd>w!<CR>", "Save" },
-	["q"] = { "<cmd>q!<CR>", "Quit" },
+	["w"] = { "<cmd>wa<CR>", "Save" },
+	["q"] = { "<cmd>q<CR>", "Quit Out Of Current Window" },
+	["Q"] = { "<cmd>qa<CR>", "Close Nvim" },
 	["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
 	["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
 	["f"] = {
@@ -141,7 +142,9 @@ local mappings = {
 			"<cmd>Telescope lsp_workspace_diagnostics<cr>",
 			"Workspace Diagnostics",
 		},
-		f = { "<cmd>lua vim.lsp.buf.format{async=true}<cr>", "Format" },
+		-- f = { "<cmd>lua vim.lsp.buf.format{async=true}<cr>", "Format" },
+		f = { "<cmd>lua vim.lsp.buf.formatting_sync()<cr>", "Format" },
+
 		i = { "<cmd>LspInfo<cr>", "Info" },
 		I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
 		j = {
@@ -183,6 +186,20 @@ local mappings = {
 		h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
 		v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
 		a = { "<cmd>ToggleTermToggleAll<cr>", "Toggle all term windows" },
+	},
+	d = {
+		name = "Display",
+		h = { "<cmd>FocusSplitLeft<CR>", "Split Left" },
+		j = { "<cmd>FocusSplitDown<CR>", "Split Down" },
+		k = { "<cmd>FocusSplitUp<CR>", "Split Up" },
+		l = { "<cmd>FocusSplitRight<CR>", "Split Right" },
+		t = { "<cmd>FocusToggle<CR>", "Toggle on/off" },
+		w = { "<cmd>FocusToggleWindow<CR>", "Toggle on/off for window" },
+		m = { "<cmd>FocusMaxOrEqual<CR>", "Toggle Max/ Equal" },
+		n = { "<cmd>FocusSplitNicely<CR>", "Split Nicely" },
+		c = { "<cmd>FocusSplitCycle<CR><cmd>WhichKey <LT>leader>d<CR>", "Cycle Forward" },
+		C = { "<cmd>FocusSplitCycle reverse<CR>", "Cycle Backwards" },
+		x = { "<cmd>WinShift<CR>", "Shift Windows" },
 	},
 }
 

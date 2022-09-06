@@ -63,5 +63,3 @@ winshift.setup({
 	end,
 })
 
-
-vim.api.nvim_set_keymap('n', '<leader><leader>ws', ':WinShift<CR>', { silent = true , noremap= true})

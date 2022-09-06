@@ -71,11 +71,13 @@ return packer.startup(function(use)
 	use("iamcco/markdown-preview.nvim") -- Markdown preview
 
 	-- Sessions
-	use("rmagatti/auto-session")
+	-- use("rmagatti/auto-session")
+	-- use("jedrzejboczar/possession.nvim")
+	use("olimorris/persisted.nvim")
 
 	-- Telescope
 	use({ "nvim-telescope/telescope.nvim", commit = "d96eaa914aab6cfc4adccb34af421bdd496468b0" })
-	use("rmagatti/session-lens") -- auto-session assistant
+	-- use("rmagatti/session-lens") -- auto-session assistant
 	-- use({ "nvim-telescope/telescope.nvim" })
 	-- use("nvim-telescope/telescope-media-files.nvim") -- Preview images in teleschope. ~~( 。・o・)💗~~
 	-- use "yatli/gui-widgets.nvim"

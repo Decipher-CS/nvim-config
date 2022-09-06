@@ -101,8 +101,9 @@ telescope.setup({
 	-- },
 })
 
-require("telescope").load_extension("session-lens")
+require("telescope").load_extension("persisted")
 
+-- require("telescope").load_extension("session-lens")
 
 -- currentelly broken
 -- telescope.load_extension("media_files") -- Extension for telescope media preview

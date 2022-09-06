@@ -29,3 +29,4 @@ configs.setup({
 		enable_autocmd = false,
 	},
 })
+

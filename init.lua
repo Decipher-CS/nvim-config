@@ -1,7 +1,3 @@
-vim.o.guicursor = "n-v-ve-o-r-sm:hor100,i:ver100,a:blinkwait1-blinkoff10-blinkon50"
-vim.cmd("colorscheme vim-monokai-tasty")
-vim.cmd("set foldmethod=syntax")
-require("user.autosession")
 require("user.keybindings")
 require("user.options")
 require("user.plugins")
@@ -30,3 +26,4 @@ require("user.marks")
 require("user.focus")
 require("user.winshift")
 require("user.lualine")
+require("user.persisted")
