@@ -20,10 +20,18 @@ require("user.project")
 require("user.impatient")
 require("user.window")
 require("user.coderunner")
-require("user.colorizer")
 require("user.prettyfold")
 require("user.marks")
 require("user.focus")
 require("user.winshift")
 require("user.lualine")
 require("user.persisted")
+require("user.ccc")
+require("user.colorizer")
+-- require("custom-theme").setup()
+-- require("user.custom-theme")
+
+
+
+
+

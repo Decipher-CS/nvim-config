@@ -113,4 +113,28 @@ mason_lsp.setup_handlers({
 		}
 		require("lspconfig").omnisharp.setup(vim.tbl_deep_extend("force", omnisharp_opts, opts))
 	end,
+
+	tsserver = function()
+		require("lspconfig").tsserver.setup({
+			on_attach = require("user.lsp.handlers").on_attach,
+			capabilities = require("user.lsp.handlers").capabilities,
+			cmd = {
+				"typescript-language-server",
+				"--stdio",
+				"--tsserver-path=/home/privileged/.nvm/versions/node/v18.1.0/lib/node_modules/typescript/lib/",
+				"disableAutomaticTypingAcquisition=true",
+			},
+			-- See >> https://github.com/typescript-language-server/typescript-language-server << for options
+			initializationOptions = {
+				maxTsServerMemory = 300,
+				preferences = {
+					includeCompletionsForModuleExports = true,
+					includeCompletionsForImportStatements = true,
+					includeCompletionsWithInsertText = true,
+					allowIncompleteCompletions = true,
+					jsxAttributeCompletionStyle = "auto",
+				},
+			},
+		})
+	end,
 })

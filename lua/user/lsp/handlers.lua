@@ -64,7 +64,7 @@ local function lsp_keymaps(bufnr)
 	vim.cmd([[autocmd CursorHold * lua vim.diagnostic.open_float({focusable = false})]])
 	vim.cmd([[autocmd CursorHoldI * lua vim.diagnostic.open_float({focusable = false})]])
 
-        keymap(bufnr, "n", "<leader>lf", "<cmd>lua vim.lsp.buf.formatting()<cr>", opts)
+	keymap(bufnr, "n", "<leader>lf", "<cmd>lua vim.lsp.buf.formatting()<cr>", opts)
 	keymap(bufnr, "n", "<leader>li", "<cmd>LspInfo<cr>", opts)
 	keymap(bufnr, "n", "<leader>lI", "<cmd>LspInstallInfo<cr>", opts)
 	keymap(bufnr, "n", "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)

@@ -36,7 +36,7 @@ persisted.setup({
 			vim.api.nvim_input("<ESC>:%bd<CR>")
 		end,
 		after_source = function(session)
-			print("Loaded session " .. session.name)
+			print("Loaded session " .. session.name, " done!")
 		end,
 	},
 	-- telescope = { -- options for the telescope extension

@@ -15,7 +15,7 @@ vim.keymap.set("n", "<leader>crp", ":CRProjects<CR>", { noremap = true, silent =
 require("code_runner").setup({
 	mode = "float", -- choose default mode (valid term, tab, float, toggle, buf)
 	focus = true, -- Focus on runner window(only works on toggle, term and tab mode)
-	startinsert = false, -- startinsert (see ':h inserting-ex')
+	startinsert = true, -- startinsert (see ':h inserting-ex')
 	term = {
 		--  Position to open the terminal, this option is ignored if mode is tab
 		position = "bot",

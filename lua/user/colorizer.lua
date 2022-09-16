@@ -4,8 +4,7 @@ if not status_ok then
 	return
 end
 
--- rgb(12, 24, 55)
--- #101010
+-- TEST  rgb(12, 24, 55)  #101010
 
 local opts = {
 	RGB = true, -- #RGB hex codes
@@ -17,7 +16,7 @@ local opts = {
 	css = true, -- Enable all CSS features: rgb_fn, hsl_fn, names, RGB, RRGGBB
 	css_fn = true, -- Enable all CSS *functions*: rgb_fn, hsl_fn
 	-- Available modes: foreground, background
-	mode = "foreground", -- Set the display mode.
+	mode = "background", -- Set the display mode.
 }
 -- colorizer.setup()
 colorizer.setup({
@@ -27,4 +26,5 @@ colorizer.setup({
 	javascript = opts,
 	typescript = opts,
 	jsx = opts,
+        lua = opts
 }, opts)

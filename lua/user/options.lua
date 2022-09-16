@@ -1,7 +1,7 @@
 local options = {
 	backup = false, -- creates a backup file
 	clipboard = "unnamedplus", -- allows neovim to access the system clipboard
-	cmdheight = 1, -- more space in the neovim command line for displaying messages
+	cmdheight = 2, -- more space in the neovim command line for displaying messages
 	completeopt = { "menuone", "noselect" }, -- mostly just for cmp
 	conceallevel = 0, -- so that `` is visible in markdown files
 	fileencoding = "utf-8", -- the encoding written to a file
@@ -43,7 +43,8 @@ local options = {
 
 vim.cmd("colorscheme vim-monokai-tasty")
 vim.cmd("set foldmethod=expr")
-vim.o.guicursor = "n-v-ve-o-r-sm:hor100,i:ver100,a:blinkwait1-blinkoff10-blinkon50"
+vim.cmd("set foldlevel=5")
+vim.o.guicursor = "n-v-ve-o-r-sm:block,i:ver100,a:blinkwait0-blinkoff0-blinkon0"
 vim.o.foldexpr = "nvim_treesitter#foldexpr()"
 
 
