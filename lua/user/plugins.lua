@@ -51,9 +51,9 @@ return packer.startup(function(use)
 
 	use("https://gitlab.com/yorickpeterse/nvim-window") -- Better switching between splits with visual queues
 
-	use({ "kyazdani42/nvim-web-devicons", commit = "8d2c5337f0a2d0a17de8e751876eeb192b32310e" })
+	-- use({ "kyazdani42/nvim-web-devicons", commit = "8d2c5337f0a2d0a17de8e751876eeb192b32310e" })
+	use("kyazdani42/nvim-web-devicons")
 	use({ "kyazdani42/nvim-tree.lua", commit = "bdb6d4a25410da35bbf7ce0dbdaa8d60432bc243" })
-	use({ "akinsho/bufferline.nvim", commit = "c78b3ecf9539a719828bca82fc7ddb9b3ba0c353" })
 	use({ "moll/vim-bbye", commit = "25ef93ac5a87526111f43e5110675032dbcacf56" })
 	-- visit this
 	use({ "nvim-lualine/lualine.nvim", commit = "3362b28f917acc37538b1047f187ff1b5645ecdd" })
@@ -83,23 +83,32 @@ return packer.startup(function(use)
 	-- use "yatli/gui-widgets.nvim"
 
 	-- Colorschemes
-	use("JoosepAlviste/palenightfall.nvim")
-	use("EdenEast/nightfox.nvim") -- nordFos
-	use("ellisonleao/gruvbox.nvim") -- gruvbox
-	use("patstockwell/vim-monokai-tasty")
+	-- use("JoosepAlviste/palenightfall.nvim")
+	-- use("EdenEast/nightfox.nvim") -- nordFos
+	-- use("ellisonleao/gruvbox.nvim") -- gruvbox
+	-- use("patstockwell/vim-monokai-tasty")
+	-- use("projekt0n/github-nvim-theme")
+	-- Colorschemes with treesitter suppport
+	-- use("rafamadriz/neon")
+	use("sainnhe/sonokai")
+	use("marko-cerovac/material.nvim")
+	-- use("/tanvirtin/monokai.nvim")
+
+	-- Buffer liness
+	-- use({ "akinsho/bufferline.nvim", commit = "c78b3ecf9539a719828bca82fc7ddb9b3ba0c353" })
+	-- use("kdheepak/tabline.nvim")
+	use("akinsho/bufferline.nvim")
+	use("noib3/nvim-cokeline")
 
 	-- Visual flair
 	use("RRethy/vim-illuminate") -- Highlight all instensis of similar text
 	use("norcalli/nvim-colorizer.lua")
 	use("https://git.sr.ht/~whynothugo/lsp_lines.nvim")
-	use("https://github.com/uga-rosa/ccc.nvim") -- nvim colour picker/ wheel
+	-- use("https://github.com/uga-rosa/ccc.nvim") -- nvim colour picker/ wheel... meh. doesn't work as expected
+	-- Test plugins are here...
 	-- use("https://github.com/Djancyp/custom-theme.nvim") -- custom theme setup
-	use({
-		"Djancyp/custom-theme.nvim",
-		config = function()
-			require("custom-theme").setup()
-		end,
-	})
+	use("theHamsta/nvim-semantic-tokens")
+	use("m-demare/hlargs.nvim")
 
 	-- Folds and Marks
 	use("anuvyklack/pretty-fold.nvim")
@@ -123,6 +132,10 @@ return packer.startup(function(use)
 	use("hrsh7th/cmp-nvim-lsp")
 	use("hrsh7th/cmp-nvim-lua")
 
+	-- Big coq
+	use("ms-jpq/coq_nvim")
+	use("ms-jpq/coq.artifacts")
+
 	-- snippets
 	use({ "L3MON4D3/LuaSnip", commit = "79b2019c68a2ff5ae4d732d50746c901dd45603a" }) --snippet engine
 	use({ "rafamadriz/friendly-snippets", commit = "d27a83a363e61009278b6598703a763ce9c8e617" }) -- a bunch of snippets to use
@@ -135,7 +148,7 @@ return packer.startup(function(use)
 	use({ "jose-elias-alvarez/null-ls.nvim", commit = "ff40739e5be6581899b43385997e39eecdbf9465" }) -- for formatters and linters
 
 	-- Multiple cursors
-	use("mg979/vim-visual-multi")
+	-- use("mg979/vim-visual-multi") -- Too many issued. Doesn't work right. Aslo conflicts with keybindins.
 
 	-- DAP (Debug Adapter Protocol)
 	use("mfussenegger/nvim-dap")

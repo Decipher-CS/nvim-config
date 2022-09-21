@@ -15,12 +15,13 @@ null_ls.setup({
 	sources = {
 		formatting.prettier.with({
 			extra_filetypes = { "toml" },
-			extra_args = { "--no-semi=true", "--single-quote", "--jsx-single-quote", "--tab-width=4" },
+			-- extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote", "--tab-width=4" },
+			extra_args = { "--no-semi", "--tab-width=4" },
 		}),
-		
+
 		-- formatting.prettierd,
 
-                -- formatting.black.with({ extra_args = { "--fast" } }),
+		-- formatting.black.with({ extra_args = { "--fast" } }),
 
 		formatting.stylua,
 		-- formatting.autopep8,
@@ -32,8 +33,9 @@ null_ls.setup({
 		}),
 		-- diagnostics.mypy,
 		-- codeaction.eslint_d,
-		diagnostics.eslint_d,
+		-- diagnostics.eslint_d,
 		-- formatting.eslint_d,
+		-- diagnostics.eslint,
 		-- diagnostics.codespell,
 		diagnostics.markdownlint,
 

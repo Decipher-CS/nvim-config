@@ -41,7 +41,6 @@ local options = {
 }
 
 
-vim.cmd("colorscheme vim-monokai-tasty")
 vim.cmd("set foldmethod=expr")
 vim.cmd("set foldlevel=5")
 vim.o.guicursor = "n-v-ve-o-r-sm:block,i:ver100,a:blinkwait0-blinkoff0-blinkon0"

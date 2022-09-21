@@ -1,14 +1,18 @@
 require("user.keybindings")
 require("user.options")
+require("user.colorscheme")
 require("user.plugins")
 require("user.telescope")
+-- require("user.coq")
 require("user.cmp")
 require("user.lsp")
 require("user.treesitter")
 require("user.autopairs")
 require("user.comment")
 require("user.tree")
-require("user.bufferline")
+-- Pick one
+require("user.bufferline") -- A
+-- require("user.cokeline")   -- B
 require("user.toggleterm")
 require("user.indentline")
 require("user.whichkey")
@@ -26,12 +30,6 @@ require("user.focus")
 require("user.winshift")
 require("user.lualine")
 require("user.persisted")
-require("user.ccc")
 require("user.colorizer")
--- require("custom-theme").setup()
--- require("user.custom-theme")
-
-
-
-
-
+require("user.hlargs")
+-- require("user.ccc")

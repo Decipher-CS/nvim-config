@@ -7,7 +7,19 @@ end
 local actions = require("telescope.actions")
 telescope.setup({
 	defaults = {
-
+		file_ignore_patterns = {
+			-- ".git/",
+			-- ".cache",
+			-- "%.o",
+			-- "%.a",
+			-- "%.out",
+			-- "%.class",
+			-- "%.pdf",
+			-- "%.mkv",
+			-- "%.mp4",
+			-- "%.zip",
+                        "node_modules/",
+		},
 		prompt_prefix = " ",
 		selection_caret = " ",
 		path_display = { "smart" },
@@ -78,6 +90,9 @@ telescope.setup({
 		},
 	},
 	pickers = {
+		colorscheme = {
+			enable_preview = true,
+		},
 		-- Default configuration for builtin pickers goes here:
 		-- picker_name = {
 		--   picker_config_key = value,

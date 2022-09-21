@@ -2,6 +2,7 @@ local M = {}
 
 local status_cmp_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
 if not status_cmp_ok then
+        print('WARN! check your handlers file.')
 	return
 end
 
@@ -87,6 +88,7 @@ M.on_attach = function(client, bufnr)
 	lsp_keymaps(bufnr)
 	local status_ok, illuminate = pcall(require, "illuminate")
 	if not status_ok then
+                print('Illuminate not working. Check handlers.')
 		return
 	end
 	illuminate.on_attach(client)

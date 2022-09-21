@@ -1,0 +1,136 @@
+-- MATERIAL THEME --
+-- MATERIAL THEME --
+-- MATERIAL THEME --
+
+-- require("material").setup({
+--
+-- 	contrast = {
+-- 		sidebars = true, -- Enable contrast for sidebar-like windows ( for example Nvim-Tree )
+-- 		floating_windows = false, -- Enable contrast for floating windows
+-- 		line_numbers = false, -- Enable contrast background for line numbers
+-- 		sign_column = false, -- Enable contrast background for the sign column
+-- 		cursor_line = false, -- Enable darker background for the cursor line
+-- 		non_current_windows = true, -- Enable darker background for non-current windows
+-- 		popup_menu = false, -- Enable lighter background for the popup menu
+-- 	},
+--
+-- 	italics = {
+-- 		comments = true, -- Enable italic comments
+-- 		keywords = false, -- Enable italic keywords
+-- 		functions = false, -- Enable italic functions
+-- 		strings = false, -- Enable italic strings
+-- 		variables = true, -- Enable italic variables
+-- 	},
+--
+-- 	contrast_filetypes = { -- Specify which filetypes get the contrasted (darker) background
+-- 		"terminal", -- Darker terminal background
+-- 		"packer", -- Darker packer background
+-- 		"qf", -- Darker qf list background
+-- 	},
+--
+-- 	high_visibility = {
+-- 		lighter = false, -- Enable higher contrast text for lighter style
+-- 		darker = false, -- Enable higher contrast text for darker style
+-- 	},
+--
+-- 	disable = {
+-- 		colored_cursor = false, -- Disable the colored cursor
+-- 		borders = false, -- Disable borders between verticaly split windows
+-- 		background = false, -- Prevent the theme from setting the background (NeoVim then uses your teminal background)
+-- 		term_colors = false, -- Prevent the theme from setting terminal colors
+-- 		eob_lines = false, -- Hide the end-of-buffer lines
+-- 	},
+--
+-- 	lualine_style = "default", -- Lualine style ( can be 'stealth' or 'default' )
+--
+-- 	async_loading = true, -- Load parts of the theme asyncronously for faster startup (turned on by default)
+--
+-- 	custom_highlights = {}, -- Overwrite highlights with your own
+--
+-- 	plugins = { -- Here, you can disable(set to false) plugins that you don't use or don't want to apply the theme to
+-- 		trouble = true,
+-- 		nvim_cmp = true,
+-- 		neogit = true,
+-- 		gitsigns = true,
+-- 		git_gutter = true,
+-- 		telescope = true,
+-- 		nvim_tree = true,
+-- 		sidebar_nvim = true,
+-- 		lsp_saga = true,
+-- 		nvim_dap = true,
+-- 		nvim_navic = true,
+-- 		which_key = true,
+-- 		sneak = true,
+-- 		hop = true,
+-- 		indent_blankline = true,
+-- 		nvim_illuminate = true,
+-- 		mini = true,
+-- 		buffline = true,
+-- 	},
+-- })
+-- vim.g.material_style = "darker"
+-- vim.cmd("colorscheme material")
+
+-- MONOKAI THEME --
+-- MONOKAI THEME --
+-- MONOKAI THEME --
+-- MONOKAI THEME --
+
+-- local status_ok, monokai = pcall(require, "monokai")
+-- if not status_ok then
+-- 	print("Theme not loaded")
+-- 	return
+-- end
+-- local palette = monokai.classic
+-- monokai.setup({
+-- 	palette = {
+-- 		name = "monokai_soda",
+-- 		base0 = "#222426",
+-- 		base1 = "#211F22",
+-- 		-- base2 = "#26292C", -- Color from ristretto. Find more here -> https://github.com/tanvirtin/monokai.nvim/blob/master/lua/monokai.lua
+-- 		base2 = "#2c2525",
+-- 		base3 = "#2E323C",
+-- 		base4 = "#333842",
+-- 		base5 = "#4d5154",
+-- 		base6 = "#72696A",
+-- 		base7 = "#B1B1B1",
+-- 		base8 = "#e3e3e1",
+-- 		border = "#A1B5B1",
+-- 		brown = "#504945",
+-- 		white = "#f6f6ec",
+-- 		grey = "#72696A",
+-- 		black = "#000000",
+-- 		pink = "#f3005f",
+-- 		green = "#97e023",
+-- 		aqua = "#78DCE8",
+-- 		yellow = " #dfd561",
+-- 		orange = "#fa8419",
+-- 		purple = "#9c64fe",
+-- 		red = "#f3005f",
+-- 		diff_add = "#3d5213",
+-- 		diff_remove = "#4a0f23",
+-- 		diff_change = "#27406b",
+-- 		diff_text = "#23324d",
+-- 	},
+-- 	custom_hlgroups = {
+-- 		TSInclude = {
+-- 			fg = palette.aqua,
+-- 		},
+-- 		GitSignsAdd = {
+-- 			fg = palette.green,
+-- 			bg = palette.base2,
+-- 		},
+-- 		GitSignsDelete = {
+-- 			fg = palette.pink,
+-- 			bg = palette.base2,
+-- 		},
+-- 		GitSignsChange = {
+-- 			fg = palette.orange,
+-- 			bg = palette.base2,
+-- 		},
+-- 	},
+-- })
+
+-- Available values:   `'default'`, `'atlantis'`, `'andromeda'`, `'shusia'`, `'maia'`,`'espresso'`
+vim.g.sonokai_better_performance = 1
+vim.cmd("colorscheme sonokai")
