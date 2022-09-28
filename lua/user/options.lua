@@ -1,5 +1,5 @@
 local options = {
-	backup = true, -- creates a backup file
+	backup = false, -- creates a backup file
 	clipboard = "unnamedplus", -- allows neovim to access the system clipboard
 	cmdheight = 2, -- more space in the neovim command line for displaying messages
 	completeopt = { "menuone", "noselect" }, -- mostly just for cmp
@@ -16,7 +16,7 @@ local options = {
 	smartindent = true, -- make indenting smarter again
 	splitbelow = true, -- force all horizontal splits to go below current window
 	splitright = true, -- force all vertical splits to go to the right of current window
-	swapfile = false, -- creates a swapfile
+	swapfile = true, -- creates a swapfile
 	termguicolors = true, -- set term gui colors (most terminals support this)
 
 	-- changed from 100 to 500. 100 was to fast.
@@ -55,4 +55,4 @@ end
 
 -- vim.cmd "set whichwrap+=<,>,[,],h,l"
 -- vim.cmd [[set iskeyword+=-]]
--- vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
+-- vim.cmd [[set formatoptions-=cro]] 

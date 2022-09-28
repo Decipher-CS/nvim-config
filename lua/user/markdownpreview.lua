@@ -1,15 +1,3 @@
-local status_ok, markdown = pcall(require, "markdown-preview")
-if not status_ok then
-	print("WANR! markdown-preview not working")
-	return
-end
-
--- use({
---     "iamcco/markdown-preview.nvim",
---     run = function() vim.fn["mkdp#util#install"]() end,
--- })
-markdown.setup()
-
 -- set to 1, nvim will open the preview window after entering the markdown buffer
 -- default: 0
 vim.cmd("let g:mkdp_auto_start = 0")
@@ -50,7 +38,7 @@ vim.cmd("let g:mkdp_browser = ''")
 
 -- set to 1, echo preview page url in command line when open preview page
 -- default is 0
-vim.cmd("let g:mkdp_echo_preview_url = 0")
+vim.cmd("let g:mkdp_echo_preview_url = 1")
 
 -- a custom vim function name to open preview page
 -- this function will receive url as param
@@ -112,7 +100,7 @@ vim.cmd("let g:mkdp_markdown_css = ''")
 vim.cmd("let g:mkdp_highlight_css = ''")
 
 -- use a custom port to start server or empty for random
-vim.cmd("let g:mkdp_port = ''")
+vim.cmd("let g:mkdp_port = '8686'")
 
 -- preview page title
 -- ${name} will be replace with the file name

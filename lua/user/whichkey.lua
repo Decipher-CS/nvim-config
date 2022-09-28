@@ -177,7 +177,7 @@ local mappings = {
 	},
 
 	t = {
-		name = "Terminal",
+		name = "Terminal | Tabs",
 		n = { "<cmd>lua _NODE_TOGGLE()<cr>", "Node" },
 		u = { "<cmd>lua _NCDU_TOGGLE()<cr>", "NCDU" },
 		t = { "<cmd>lua _HTOP_TOGGLE()<cr>", "Htop" },
@@ -186,6 +186,7 @@ local mappings = {
 		h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
 		v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
 		a = { "<cmd>ToggleTermToggleAll<cr>", "Toggle all term windows" },
+		n = { "<cmd>tabnew %<cr>", "Create new tab" },
 	},
 	d = {
 		name = "Display",
