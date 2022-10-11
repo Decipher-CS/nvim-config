@@ -15,8 +15,8 @@ null_ls.setup({
 	sources = {
 		formatting.prettier.with({
 			extra_filetypes = { "toml" },
-			-- extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote", "--tab-width=4" },
-			extra_args = { "--no-semi", "--tab-width=4" },
+			extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote", "--tab-width=4", "--print-width=120" },
+			-- extra_args = { "--no-semi", "--tab-width=4" },
 		}),
 
 		-- formatting.prettierd,
