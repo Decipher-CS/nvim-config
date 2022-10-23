@@ -34,3 +34,16 @@ require("user.colorizer")
 require("user.hlargs")
 require("user.markdownpreview")
 -- require("user.ccc")
+require("user.leap")
+
+-- -- jsonc
+-- vim.filetype.add({
+-- 	extension = {
+--                 json = "jsonc",
+-- 	},
+-- 	filename = {
+-- 		["tsconfig.json"] = "jsonc",
+-- 		["tsconfig"] = "jsonc",
+-- 		-- ["json"] = "jsonc",
+-- 	},
+-- })

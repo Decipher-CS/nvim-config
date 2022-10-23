@@ -40,13 +40,10 @@ local options = {
 	guifont = "monospace:h17", -- the font used in graphical neovim applications
 }
 
-
 vim.cmd("set foldmethod=expr")
 vim.cmd("set foldlevel=5")
 vim.o.guicursor = "n-v-ve-o-r-sm:block,i:ver100,a:blinkwait0-blinkoff0-blinkon0"
 vim.o.foldexpr = "nvim_treesitter#foldexpr()"
-
-
 vim.opt.shortmess:append("c")
 
 for k, v in pairs(options) do
@@ -55,4 +52,4 @@ end
 
 -- vim.cmd "set whichwrap+=<,>,[,],h,l"
 -- vim.cmd [[set iskeyword+=-]]
--- vim.cmd [[set formatoptions-=cro]] 
+-- vim.cmd [[set formatoptions-=cro]]

@@ -75,6 +75,13 @@ mason_lsp.setup_handlers({
 			},
 		})
 	end,
+	jsonls = function()
+		require("lspconfig").jsonls.setup({
+			on_attach = require("user.lsp.handlers").on_attach,
+			capabilities = require("user.lsp.handlers").capabilities,
+			init_options = { provideFormatter = false },
+		})
+	end,
 
 	-- eslint = function()
 	-- 	require("lspconfig").eslint.setup({

@@ -118,13 +118,14 @@ return packer.startup(function(use)
 	use("theHamsta/nvim-semantic-tokens")
 	use("m-demare/hlargs.nvim")
 
-	-- Folds and Marks
+	-- Folds and Marks and other quirks
 	use("anuvyklack/pretty-fold.nvim")
 	use("anuvyklack/fold-preview.nvim") -- Preview the content of the folds without opening them
 	use("anuvyklack/keymap-amend.nvim") -- No idea why but it is required for the fold preview plugin. uuffff
 	use("beauwilliams/focus.nvim")
 	use("chentoast/marks.nvim") -- Put marks on gutter
 	use("sindrets/winshift.nvim") -- Rearrange splits
+        use("ggandor/leap.nvim") -- leap for quick navigation
 
 	-- cmp plugins
 	-- use({ "hrsh7th/nvim-cmp", commit = "df6734aa018d6feb4d76ba6bda94b1aeac2b378a" }) -- The completion plugin
@@ -141,8 +142,8 @@ return packer.startup(function(use)
 	use("hrsh7th/cmp-nvim-lua")
 
 	-- Big coq
-	use("ms-jpq/coq_nvim")
-	use("ms-jpq/coq.artifacts")
+	-- use("ms-jpq/coq_nvim")
+	-- use("ms-jpq/coq.artifacts")
 
 	-- snippets
 	use({ "L3MON4D3/LuaSnip", commit = "79b2019c68a2ff5ae4d732d50746c901dd45603a" }) --snippet engine

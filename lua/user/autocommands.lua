@@ -44,3 +44,30 @@ vim.api.nvim_create_autocmd({ "TextYankPost" }, {
 		vim.highlight.on_yank({ higroup = "Visual", timeout = 200 })
 	end,
 })
+
+-- save folds on file exit
+vim.api.nvim_create_autocmd({ "ExitPre" }, {
+	callback = function(args)
+		if not args.file == nil then
+			vim.cmd("mkview")
+		end
+	end,
+})
+
+-- Load folds on file enter
+vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
+	callback = function(args)
+		if not args.file == nil then
+			vim.cmd("loadview")
+		end
+	end,
+})
+
+-- Change tsconfig.json to tsconfig.jsonc
+vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
+	callback = function(args)
+		if string.find(args.file,"tsconfig.json") then
+                        vim.cmd("set ft=jsonc")
+		end
+	end,
+})
