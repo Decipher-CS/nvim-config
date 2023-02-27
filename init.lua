@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 require("user.keybindings")
 require("user.options")
 require("user.colorscheme")
@@ -47,3 +48,26 @@ require("user.leap")
 -- 		-- ["json"] = "jsonc",
 -- 	},
 -- })
+=======
+-- vim.wo.foldmethod = 'indent'
+-- vim.wo.foldmethod = 'expr'
+require('usr.autosession')
+require('usr.packages')
+require("usr.keymaps")
+require("usr.options")
+require('usr.dashboard')
+require("usr.lualine")
+require("usr.tabline")
+require('usr.notify')
+require('usr.autocommands')
+require('usr.telescope')
+require('usr.treesitter')
+require('usr.lsp')
+require('usr.nvim-cmp')
+require('usr.nvim-tree')
+require('usr.noice')
+require('usr.leap')
+require('usr.autopairs')
+require('usr.prettyfold')
+require('usr.dap')
+>>>>>>> 1ee2872 (inital setup)
