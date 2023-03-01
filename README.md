@@ -2,7 +2,7 @@
 
 ## Description
 
-Configureation file for [neovim](https://github.com/neovim/neovim/)
+Configuration file for [neovim](https://github.com/neovim/neovim/)
 
 ## Index
 
