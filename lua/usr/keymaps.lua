@@ -61,8 +61,8 @@ vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
-vim.keymap.set("n", "<leader>o", require("portal").jump_backward, {})
-vim.keymap.set("n", "<leader>i", require("portal").jump_forward, {})
+vim.keymap.set("n", "<leader>o", require("portal").jump_backward, extend_desc('Jumlist Next'))
+vim.keymap.set("n", "<leader>i", require("portal").jump_forward, extend_desc('Jumplist Prev'))
 
 -- [[ Visual Mode; 'x/v' ]]
 
