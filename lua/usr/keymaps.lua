@@ -34,12 +34,15 @@ keymap("n", "<C-j>", "<C-w>j", extend_desc("Move To Down Pane"))
 keymap("n", "<C-k>", "<C-w>k", extend_desc("Move To Above Pane"))
 keymap("n", "<C-l>", "<C-w>l", extend_desc("Move To Right Pane"))
 
+-- Resize with arrows
+keymap("n", "<C-Up>", ":resize -2<CR>", opts)
+keymap("n", "<C-Down>", ":resize +2<CR>", opts)
+keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
+keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
+
 -- Navigate between buffers
 keymap("n", "<Tab>", ":bnext<CR>", extend_desc("Next Buffer"))
 keymap("n", "<S-Tab>", ":bprev<CR>", extend_desc("Prev Buffer"))
-
-keymap("n", "<leader><leader>s", ":luafile ~/.config/nvim/init.lua<CR>:lua require('notify')('Config Reloaded!')<CR>",
-  extend_desc("Source And Reload Lua Config"))
 
 -- Keep cursor centered when moving half up/down
 keymap("n", "<C-u>", "<C-u>zz", extend_desc("Move Half Page Up"))
@@ -58,28 +61,27 @@ vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
+vim.keymap.set("n", "<leader>o", require("portal").jump_backward, {})
+vim.keymap.set("n", "<leader>i", require("portal").jump_forward, {})
 
 -- [[ Visual Mode; 'x/v' ]]
 
 -- Stay in indent mode
-keymap("v", ">", ">gv", opts)
-keymap("v", "<", "<gv", opts)
+keymap("v", ">", ">gv", extend_desc("Unindent Line"))
+keymap("v", "<", "<gv", extend_desc("Indent Line"))
 
 -- Move text up and down
--- keymap("v", "<A-j>", ":m .+1<CR>==", opts)
--- keymap("v", "<A-k>", ":m .-2<CR>==", opts)
--- keymap("v", "p", '"_dP', opts)
-
--- Move text up and down
--- keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
--- keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
--- keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
--- keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
+keymap("v", "<A-j>", ":m .+1<CR>==", extend_desc("Move Selected Text Down"))
+keymap("v", "<A-k>", ":m .-2<CR>==", extend_desc("Move Selected Text Up"))
+keymap("v", "p", '"_dP', extend_desc("Sync with system clipboard"))
+keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", extend_desc("Move Selected Text Down"))
+keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", extend_desc("Move Selected Text Up"))
 
 -- [[ Edit Mode; 'i' ]]
 
 -- delete word under cursor
 keymap("i", "<C-BS>", "<C-W>", extend_desc("Delete from char under cursor to starting of word"))
+keymap("c", "<C-BS>", "<C-W>", extend_desc("Delete from char under cursor to starting of word"))
 
 
 -- [[ ToggleTerm ]]

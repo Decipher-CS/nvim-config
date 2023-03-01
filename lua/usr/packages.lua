@@ -13,7 +13,20 @@ vim.opt.rtp:prepend(lazypath)
 
 -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
 local plugins = {
-
+  {
+	"iamcco/markdown-preview.nvim", -- Markdown preview
+    -- build = '',
+    -- cond = function()
+    --   return vim.fn.executable 'make' == 1
+    -- end,
+  },
+  {
+    "cbochs/portal.nvim" -- https://github.com/cbochs/portal.nvim#portals
+  },
+  {
+    'chentoast/marks.nvim',
+    opts = {}
+  },
   {
     "mfussenegger/nvim-dap"
   },
@@ -30,9 +43,9 @@ local plugins = {
   {
     "windwp/nvim-autopairs"
   },
-  -- {
-  --   "rmagatti/auto-session"
-  -- },
+  {
+    "rmagatti/auto-session"
+  },
   {
     'glepnir/dashboard-nvim',
     event = 'VimEnter',
@@ -98,8 +111,11 @@ local plugins = {
   },
 
   -- Useful plugin to show you pending keybinds.
-  { 'folke/which-key.nvim',    opts = {} },
-  { -- Adds git releated signs to the gutter, as well as utilities for managing changes
+  {
+    'folke/which-key.nvim', opts = {}
+  },
+  {
+    -- Adds git releated signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
     opts = {
       -- See `:help gitsigns.txt`
@@ -121,12 +137,14 @@ local plugins = {
     -- end,
   },
 
-  { -- Set lualine as statusline
+  {
+    -- Set lualine as statusline
     -- See `:help lualine.txt`
     'nvim-lualine/lualine.nvim',
   },
 
-  { -- Add indentation guides even on blank lines
+  {
+    -- Add indentation guides even on blank lines
     'lukas-reineke/indent-blankline.nvim',
     -- Enable `lukas-reineke/indent-blankline.nvim`
     -- See `:help indent_blankline.txt`
@@ -142,8 +160,9 @@ local plugins = {
   },
 
   -- Fuzzy Finder (files, lsp, etc)
-  { 'nvim-telescope/telescope.nvim', version = '*', dependencies = {
-    'nvim-lua/plenary.nvim', 'nvim-telescope/telescope-media-files.nvim', 'nvim-lua/popup.nvim',   "rmagatti/auto-session", 'rmagatti/session-lens' }
+  {
+    'nvim-telescope/telescope.nvim', version = '*', dependencies = {
+    'nvim-lua/plenary.nvim', 'nvim-telescope/telescope-media-files.nvim', 'nvim-lua/popup.nvim', "rmagatti/auto-session", 'rmagatti/session-lens' }
   },
   -- Fuzzy Finder Algorithm which requires local dependencies to be built.
   -- Only load if `make` is available. Make sure you have the system

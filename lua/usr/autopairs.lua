@@ -15,7 +15,6 @@ ap.setup({
   },
 })
 
-
 -- Add ability to add brackets after autocompleting a function like 'require' -> 'require()'
 local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 local cmp = require('cmp')

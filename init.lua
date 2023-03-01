@@ -51,8 +51,8 @@ require("user.leap")
 =======
 -- vim.wo.foldmethod = 'indent'
 -- vim.wo.foldmethod = 'expr'
-require('usr.autosession')
 require('usr.packages')
+require('usr.autosession')
 require("usr.keymaps")
 require("usr.options")
 require('usr.dashboard')
