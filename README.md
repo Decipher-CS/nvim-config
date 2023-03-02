@@ -50,6 +50,7 @@ Configuration file for [neovim](https://github.com/neovim/neovim/)
 - nvim-lua/popup.nvim
 - rmagatti/session-lens
 - nvim-telescope/telescope-fzf-native.nvim
+- jackMort/ChatGPT.nvim
 
 ## TODO
 
@@ -63,3 +64,4 @@ Configuration file for [neovim](https://github.com/neovim/neovim/)
 - [ ] Version control entire config
 - [ ] Fix nvim-notify taking too much space on screen on large amount of texts
 - [ ] Setup markdown preview to automatically run `yarn` upon updating
+- [ ] Make more use of square brack navigation `][`. This can be make possible with the help of [mini.nvim bracketed](https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-basics.md) or [vim-unimpaired](https://github.com/tpope/vim-unimpaired)
