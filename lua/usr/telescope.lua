@@ -13,6 +13,15 @@ telescope.setup {
         -- ['<C-d>'] = true,
       },
     },
+    file_ignore_patterns = {
+      "node_modules/",
+      "%~",
+      "%.swp",
+      "%.swo",
+    },
+    prompt_prefix = " ",
+    selection_caret = " ",
+    path_display = { "smart" },
   },
   extensions = {
     media_files = {

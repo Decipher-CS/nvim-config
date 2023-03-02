@@ -27,6 +27,8 @@ keymap("", "<K>", "<Nop>", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+-- Enter normal mode
+keymap("i", "kl", "<ESC>", extend_desc("Exit Insert Mode"))
 
 -- Navigate between splits
 keymap("n", "<C-h>", "<C-w>h", extend_desc("Move To Left Pane"))
