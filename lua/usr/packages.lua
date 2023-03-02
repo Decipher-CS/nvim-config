@@ -14,6 +14,15 @@ vim.opt.rtp:prepend(lazypath)
 -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
 local plugins = {
   {
+    "jackMort/ChatGPT.nvim",
+    dependencies={
+      "MunifTanjim/nui.nvim",
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim"
+    },
+    opts={}
+  },
+  {
 	"iamcco/markdown-preview.nvim", -- Markdown preview
     -- build = '',
     -- cond = function()
