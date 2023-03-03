@@ -10,7 +10,7 @@ if not (status_cmp_ok or status_luasnip_ok) then
 end
 
 luasnip.config.setup {}
-
+require('luasnip.loaders.from_vscode').lazy_load()
 local check_backspace = function()
   local col = vim.fn.col(".") - 1
   return col == 0 or vim.fn.getline("."):sub(col, col):match("%s")

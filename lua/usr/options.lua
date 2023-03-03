@@ -7,9 +7,10 @@ vim.wo.signcolumn = 'yes' -- Keep signcolumn on by default
 -- vim.cmd.colorscheme 'onedark'
 -- vim.nohls
 local options = {
+	hlsearch = false, -- highlight all matches on previous search pattern
 	foldmethod = 'expr', -- try other methods such as syntax, expr, indent. See :h foldmethod
 	foldexpr="nvim_treesitter#foldexpr()",
-	foldlevel=99,
+	foldlevel=10,
 	sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions", -- What is saved by :mkview
 	-- Enable break indent
 	breakindent = true,
@@ -17,11 +18,12 @@ local options = {
 	-- NOTE: You should make sure your terminal supports this
 
 	backup = false, -- creates a backup file
-	clipboard = "unnamedplus", -- allows neovim to access the system clipboard
-	cmdheight = 2, -- more space in the neovim command line for displaying messages
+	cb= "unnamedplus", -- allows neovim to access the system clipboard
+	cmdheight = 0, -- more space in the neovim command line for displaying messages
 	conceallevel = 0, -- so that `` is visible in markdown files
-	fileencoding = "utf-8", -- the encoding written to a file
-	hlsearch = false, -- highlight all matches on previous search pattern
+
+	-- fileencoding gives error??
+	-- fileencoding = "utf-8", -- the encoding written to a file
 	ignorecase = true, -- ignore case in search patterns
 	mouse = "a", -- allow the mouse to be used in neovim
 	mouseshape = "a:beam", -- Mouse pointer shape

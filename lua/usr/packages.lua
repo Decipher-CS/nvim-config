@@ -15,15 +15,15 @@ vim.opt.rtp:prepend(lazypath)
 local plugins = {
   {
     "jackMort/ChatGPT.nvim",
-    dependencies={
+    dependencies = {
       "MunifTanjim/nui.nvim",
       "nvim-lua/plenary.nvim",
       "nvim-telescope/telescope.nvim"
     },
-    opts={}
+    opts = {}
   },
   {
-	"iamcco/markdown-preview.nvim", -- Markdown preview
+    "iamcco/markdown-preview.nvim", -- Markdown preview
     -- build = '',
     -- cond = function()
     --   return vim.fn.executable 'make' == 1
@@ -80,7 +80,7 @@ local plugins = {
       'rcarriga/nvim-notify',
     },
   },
-  { 'akinsho/toggleterm.nvim', version = "*", opts = { open_mapping = [[<C-\>]], } },
+  { 'akinsho/toggleterm.nvim', version = "*", opts = {} },
   -- NOTE: First, some plugins that don't require any configuration
 
   -- Git related plugins
@@ -115,7 +115,8 @@ local plugins = {
       'L3MON4D3/LuaSnip',
       'saadparwaiz1/cmp_luasnip',
       "hrsh7th/cmp-path",
-      "hrsh7th/cmp-cmdline"
+      "hrsh7th/cmp-cmdline",
+      "rafamadriz/friendly-snippets"
     },
   },
 
@@ -165,7 +166,8 @@ local plugins = {
 
   -- "gc" to comment visual regions/lines
   {
-    'numToStr/Comment.nvim', opts = {}
+    'numToStr/Comment.nvim',
+    dependencies = { "JoosepAlviste/nvim-ts-context-commentstring" },
   },
 
   -- Fuzzy Finder (files, lsp, etc)

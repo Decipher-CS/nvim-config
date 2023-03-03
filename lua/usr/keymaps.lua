@@ -76,6 +76,7 @@ keymap("v", "<", "<gv", extend_desc("Indent Line"))
 keymap("v", "<A-j>", ":m .+1<CR>==", extend_desc("Move Selected Text Down"))
 keymap("v", "<A-k>", ":m .-2<CR>==", extend_desc("Move Selected Text Up"))
 keymap("v", "p", '"_dP', extend_desc("Sync with system clipboard"))
+-- keymap("t", "p", '"_dP', extend_desc("Sync with system clipboard"))
 keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", extend_desc("Move Selected Text Down"))
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", extend_desc("Move Selected Text Up"))
 
@@ -87,10 +88,11 @@ keymap("c", "<C-BS>", "<C-W>", extend_desc("Delete from char under cursor to sta
 
 
 -- [[ ToggleTerm ]]
+keymap("n", "<leader>tt", ":ToggleTerm<CR>", extend_desc("[T]oggle [T]erm Window"))
 keymap("n", "<leader>th", ":ToggleTerm direction=horizontal<CR>", extend_desc("Open ToggleTerm Horizontally"))
 keymap("n", "<leader>tf", ":ToggleTerm direction=float<CR>", extend_desc("Open ToggleTerm in Floating Window"))
 keymap("n", "<leader>tv", ":ToggleTerm direction=vertical<CR>", extend_desc("Open ToggleTerm In Vertically"))
-keymap("n", "<leader>tt", ":ToggleTerm direction=tab<CR>", extend_desc("Open ToggleTerm In A New Tab"))
+keymap("n", "<leader>tn", ":ToggleTerm direction=tab<CR>", extend_desc("Open ToggleTerm In A [N]ew Tab"))
 keymap("n", "<leader>ta", ":ToggleTermAll<CR>", extend_desc("Open All ToggleTerm Windows"))
 
 -- Bindings for better window navigation when inside the terminal-mode
