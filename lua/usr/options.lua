@@ -1,11 +1,7 @@
 -- [[ Setting options ]]
 -- See `:help vim.o`
-
-
 vim.wo.number = true -- Make line numbers default
 vim.wo.signcolumn = 'yes' -- Keep signcolumn on by default
--- vim.cmd.colorscheme 'onedark'
--- vim.nohls
 local options = {
 	hlsearch = false, -- highlight all matches on previous search pattern
 	foldmethod = 'expr', -- try other methods such as syntax, expr, indent. See :h foldmethod

@@ -99,6 +99,17 @@ local plugins = {
       -- Automatically install LSPs to stdpath for neovim
       'williamboman/mason.nvim',
       'williamboman/mason-lspconfig.nvim',
+      {
+        "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+        opts = {},
+        cond = function()
+          vim.diagnostic.config({
+            -- Setting this to false to avoid dupliarion error messages from lsplines plugin
+            virtual_text = false
+          })
+          return true
+        end,
+      },
 
       -- Useful status updates for LSP
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
