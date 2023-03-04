@@ -87,7 +87,8 @@ local plugins = {
 
   -- NOTE: This is where your plugins related to LSP can be installed.
   --  The configuration is done below. Search for lspconfig to find it below.
-  { -- LSP Configuration & Plugins
+  {
+    -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',
     dependencies = {
       -- Automatically install LSPs to stdpath for neovim
@@ -115,7 +116,8 @@ local plugins = {
     },
   },
 
-  { -- Autocompletion
+  {
+    -- Autocompletion
     'hrsh7th/nvim-cmp',
     dependencies = { 'hrsh7th/cmp-nvim-lsp',
       'L3MON4D3/LuaSnip',
@@ -188,12 +190,21 @@ local plugins = {
   {
     'numToStr/Comment.nvim',
     dependencies = { "JoosepAlviste/nvim-ts-context-commentstring" },
+    event = "VeryLazy",
+    config = function()
+      require("Comment").setup({
+        pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
+      })
+    end
   },
 
   -- Fuzzy Finder (files, lsp, etc)
   {
-    'nvim-telescope/telescope.nvim', version = '*', dependencies = {
-    'nvim-lua/plenary.nvim', 'nvim-telescope/telescope-media-files.nvim', 'nvim-lua/popup.nvim', "rmagatti/auto-session", 'rmagatti/session-lens' }
+    'nvim-telescope/telescope.nvim',
+    version = '*',
+    dependencies = {
+      'nvim-lua/plenary.nvim', 'nvim-telescope/telescope-media-files.nvim', 'nvim-lua/popup.nvim',
+      "rmagatti/auto-session", 'rmagatti/session-lens' }
   },
   -- Fuzzy Finder Algorithm which requires local dependencies to be built.
   -- Only load if `make` is available. Make sure you have the system
@@ -208,7 +219,8 @@ local plugins = {
     end,
   },
 
-  { -- Highlight, edit, and navigate code
+  {
+    -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
     dependencies = {
       'nvim-treesitter/nvim-treesitter-textobjects',

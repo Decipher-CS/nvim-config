@@ -19,6 +19,3 @@ require('usr.leap')
 require('usr.autopairs')
 require('usr.prettyfold')
 require('usr.dap')
-require('Comment').setup { -- enable Comment plugin alongside support for tsx/jsx
-        pre_hook = require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook(),
-}
