@@ -17,6 +17,8 @@ local on_attach = function(_, bufnr)
 
 	-- nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame keyword under cursor')
 	nmap('<leader>la', vim.lsp.buf.code_action, 'Code [A]ction')
+	-- Toggle lsp_lines on/off
+	nmap('<leader>ll', require("lsp_lines").toggle, 'Toggle [L]SP [L]ines')
 
 	nmap('<leader>ld', vim.lsp.buf.definition, '[G]oto [D]efinition')
 	-- nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
@@ -65,7 +67,15 @@ mason.setup()
 --  Put your custom config here.
 local servers = {
 	tsserver = {
+		-- See >>
+		-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#tsserver
+		-- https://github.com/typescript-language-server/typescript-language-server
 
+		-- root_dir = {
+		-- 	'tsconfig.json'
+		-- },
+		-- root_dir = vim.fs.dirname(vim.fs.find({'jsconfig.json', 'tsconfig.json', 'package.json'}, { upward = true })[1]),
+		-- root_dir = require('lspconfig').util.root_pattern('tsconfig.json', 'package.json', '.git'),
 		initializationOptions = {
 			preferences = {
 				includeCompletionsForModuleExports = true,

@@ -43,12 +43,6 @@ local plugins = {
     "anuvyklack/pretty-fold.nvim",
     dependencies = { 'anuvyklack/fold-preview.nvim', 'anuvyklack/keymap-amend.nvim' }
   },
-  { -- Theme inspired by Atom
-    'navarasu/onedark.nvim',
-    config = function()
-      vim.cmd.colorscheme 'onedark'
-    end,
-  },
   {
     "windwp/nvim-autopairs"
   },
@@ -105,7 +99,8 @@ local plugins = {
         cond = function()
           vim.diagnostic.config({
             -- Setting this to false to avoid dupliarion error messages from lsplines plugin
-            virtual_text = false
+            virtual_text = true,
+            severity_sort = true
           })
           return true
         end,
@@ -150,9 +145,23 @@ local plugins = {
     },
   },
 
+  -- [[ colorschemes ]]
+  { -- Theme inspired by Atom
+    'navarasu/onedark.nvim',
+    -- config = function()
+    --   vim.cmd.colorscheme 'onedark'
+    -- end,
+  },
+  {
+    'folke/tokyonight.nvim',
+    priority = 1000,
+    config = function()
+      vim.cmd.colorscheme 'tokyonight-night'
+    end,
+  },
   {
     'sainnhe/sonokai',
-    priority = 1000,
+    -- priority = 1000,
     -- config = function()
     --   vim.cmd.colorscheme 'sonokai'
     -- end,

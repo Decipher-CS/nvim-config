@@ -51,9 +51,9 @@ keymap("n", "<C-u>", "<C-u>zz", extend_desc("Move Half Page Up"))
 keymap("n", "<C-d>", "<C-d>zz", extend_desc("Move Half Page Down"))
 
 -- File state management
-keymap("n", "<leader>ww", ":wa<CR>", extend_desc("Save File"))
-keymap("n", "<leader>wq", ":wqa<CR>", extend_desc("Save File And Close Buffer"))
-keymap("n", "<s-q>", ":bdelete<CR>", extend_desc("Delete Buffer"))
+keymap("n", "<leader>ww", ":wa<CR>", extend_desc("[W]rite File"))
+keymap("n", "<leader>wq", ":waq!<CR>", extend_desc("[W]rite File And [Q]uit Buffer"))
+keymap("n", "<s-q>", ":bdelete<CR>", extend_desc("Close Split/Buffer"))
 keymap("n", "<C-q>", ":qa!<CR>", extend_desc("Quit Nvim"))
 
 -- Set the leader key (space in this case) to do nothing, Binding it to NULL
