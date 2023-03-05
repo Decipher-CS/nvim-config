@@ -52,7 +52,8 @@ keymap("n", "<C-d>", "<C-d>zz", extend_desc("Move Half Page Down"))
 
 -- File state management
 keymap("n", "<leader>ww", ":wa<CR>", extend_desc("[W]rite File"))
-keymap("n", "<leader>wq", ":waq!<CR>", extend_desc("[W]rite File And [Q]uit Buffer"))
+keymap("n", "<leader>wq", ":wqa!<CR>", extend_desc("[W]rite File And [Q]uit Buffer"))
+keymap("n", "<leader>qq", ":qa!<CR>", extend_desc("[W]rite File And [Q]uit Buffer"))
 keymap("n", "<s-q>", ":bdelete<CR>", extend_desc("Close Split/Buffer"))
 keymap("n", "<C-q>", ":qa!<CR>", extend_desc("Quit Nvim"))
 
@@ -63,8 +64,8 @@ vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
-vim.keymap.set("n", "<leader>o", require("portal").jump_backward, extend_desc('Jumlist Next'))
-vim.keymap.set("n", "<leader>i", require("portal").jump_forward, extend_desc('Jumplist Prev'))
+-- keymap("n", "<leader>o", require("portal").jump_backward(), extend_desc('Jumlist Next'))
+-- keymap("n", "<leader>i", require("portal").jump_forward(), extend_desc('Jumplist Prev'))
 
 -- [[ Visual Mode; 'x/v' ]]
 

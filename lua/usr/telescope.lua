@@ -29,6 +29,11 @@ telescope.setup {
       find_cmd = "fd"
     }
   },
+  pickers = {
+    colorscheme = {
+      enable_preview = true
+    }
+  }
 }
 
 -- Enable telescope fzf native, if installed

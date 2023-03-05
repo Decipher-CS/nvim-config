@@ -1,12 +1,14 @@
 -- [[ Keymaps ]]
 
-local on_attach = function(_, bufnr)
-	-- NOTE: Remember that lua is a real programming language, and as such it is possible
-	-- to define small helper and utility functions so you don't have to repeat yourself
-	-- many times.
-	--
-	-- In this case, we create a function that lets us more easily define mappings specific
-	-- for LSP related items. It sets the mode, buffer and description for us each time.
+local on_attach = function(client, bufnr)
+	if client.name == "tsserver" then
+		client.server_capabilities.documentFormattingProvider = false
+	end
+	if client.name == "sumneko_lua" then
+		client.server_capabilities.documentFormattingProvider = false
+		-- client.resolved_capabilities.document_formatting = false
+	end
+
 	local nmap = function(keys, func, desc)
 		if desc then
 			desc = 'LSP: ' .. desc
@@ -53,7 +55,9 @@ end
 local status_mason_ok, mason = pcall(require, "mason")
 local status_mason_lspconfig_ok, mason_lspconfig = pcall(require, "mason-lspconfig")
 local status_neodev_ok, neodev = pcall(require, "neodev")
-if not status_neodev_ok or not status_mason_ok or not status_mason_lspconfig_ok then
+local status_nulls_ok, nulls = pcall(require, "null-ls")
+local status_lspconfig_ok, lspconfig = pcall(require, "lspconfig")
+if not status_neodev_ok or not status_mason_ok or not status_mason_lspconfig_ok or not status_nulls_ok then
 	print('lsp not configured')
 	vim.notify('lsp not working', 'warn')
 	return
@@ -66,36 +70,33 @@ mason.setup()
 --  the `settings` field of the server config. You must look up that documentation yourself.
 --  Put your custom config here.
 local servers = {
-	tsserver = {
-		-- See >>
-		-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#tsserver
-		-- https://github.com/typescript-language-server/typescript-language-server
-
-		-- root_dir = {
-		-- 	'tsconfig.json'
-		-- },
-		-- root_dir = vim.fs.dirname(vim.fs.find({'jsconfig.json', 'tsconfig.json', 'package.json'}, { upward = true })[1]),
-		-- root_dir = require('lspconfig').util.root_pattern('tsconfig.json', 'package.json', '.git'),
-		initializationOptions = {
-			preferences = {
-				includeCompletionsForModuleExports = true,
-				includeCompletionsForImportStatements = true,
-				includeCompletionsWithInsertText = true,
-				allowIncompleteCompletions = true,
-				jsxAttributeCompletionStyle = "auto",
-			},
-		},
-	},
+	-- tsserver = {
+	-- 	-- See >>
+	-- 	-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#tsserver
+	-- 	-- https://github.com/typescript-language-server/typescript-language-server
+	-- 	initializationOptions = {
+	-- 		preferences = {
+	-- 			includeCompletionsForModuleExports = true,
+	-- 			includeCompletionsForImportStatements = true,
+	-- 			includeCompletionsWithInsertText = true,
+	-- 			allowIncompleteCompletions = true,
+	-- 			jsxAttributeCompletionStyle = "auto",
+	-- 			disableSuggestions = true,
+	-- 			quotePreference = "single",
+	-- 		},
+	-- 	},
+	-- },
 	lua_ls = {
 		Lua = {
 			diagnostics = {
 				globals = { "vim" },
+				disable = { 'unused-local' }, -- Disable the "unused variable" error
 			},
-			workspace = { checkThirdParty = false,
-
+			workspace = {
+				checkThirdParty = false,
 				library = {
-					[vim.fn.expand "$VIMRUNTIME/lua"] = true,
-					[vim.fn.stdpath "config" .. "/lua"] = true,
+					    [vim.fn.expand "$VIMRUNTIME/lua"] = true,
+					    [vim.fn.stdpath "config" .. "/lua"] = true,
 				},
 			},
 			telemetry = { enable = false },
@@ -118,10 +119,54 @@ mason_lspconfig.setup {
 -- Automatically invoke lspconfig setup for every installed LSP server
 mason_lspconfig.setup_handlers {
 	function(server_name)
-		require('lspconfig')[server_name].setup {
+		-- This is the format -> require 'lspconfig'.tsserver.setup {}
+		lspconfig[server_name].setup {
 			capabilities = capabilities,
 			on_attach = on_attach,
 			settings = servers[server_name],
+			root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json", "jsconfig.json", ".git")
 		}
 	end,
+
+	tsserver = function()
+		lspconfig.tsserver.setup({
+			on_attach = on_attach,
+			capabilities = capabilities,
+			initializationoptions = {
+				maxtsservermemory = 500,
+				preferences = {
+					includecompletionsformoduleexports = true,
+					includecompletionsforimportstatements = true,
+					includecompletionswithinserttext = true,
+					allowincompletecompletions = true,
+					jsxattributecompletionstyle = "auto",
+					quotepreference = "single",
+				},
+			},
+		})
+	end,
 }
+
+
+-- [[ null-ls; linters & formatters ]]
+
+nulls.setup({
+	-- see -> https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/builtin_config.md#configuration
+	sources = {
+		-- formatters
+		-- nulls.builtins.formatting.stylua,
+		nulls.builtins.formatting.prettier,
+		-- nulls.builtins.formatting.eslint_d,
+
+		-- diagnostics
+		-- nulls.builtins.diagnostics.semgrep,
+		-- nulls.builtins.diagnostics.eslint_d,
+
+		-- completion
+		-- nulls.builtins.completion.spell,
+
+		-- code action
+		-- nulls.builtins.code_actions.xo,
+		nulls.builtins.code_actions.eslint_d,
+	},
+})

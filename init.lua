@@ -1,9 +1,9 @@
 -- vim.wo.foldmethod = 'indent'
 -- vim.wo.foldmethod = 'expr'
+require("usr.options")
 require('usr.packages')
 require('usr.autosession')
 require("usr.keymaps")
-require("usr.options")
 require('usr.dashboard')
 require("usr.lualine")
 require("usr.tabline")
