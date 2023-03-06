@@ -1,3 +1,5 @@
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
@@ -14,12 +16,13 @@ vim.opt.rtp:prepend(lazypath)
 -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
 local plugins = {
   {
-'ms-jpq/coq_nvim',
-    -- config = function()
-    --   vim.g.coq_settings = {
-    --     ["auto_start"] = 'shut-up',
-    --   }
-    -- end,
+    -- auto complete stuff
+    'ms-jpq/coq_nvim',
+    enabled = false,
+    dependencies = { 'ms-jpq/coq.artifacts' },
+    init = function()
+      vim.g.coq_settings = { auto_start = true }
+    end,
   },
   {
     "jackMort/ChatGPT.nvim",
@@ -37,64 +40,56 @@ local plugins = {
     --   return vim.fn.executable 'make' == 1
     -- end,
   },
-  {
-    "cbochs/portal.nvim" -- https://github.com/cbochs/portal.nvim#portals
-  },
+  { "cbochs/portal.nvim" }, -- https://github.com/cbochs/portal.nvim#portals
   {
     'chentoast/marks.nvim',
     opts = {}
   },
-  {
-    "mfussenegger/nvim-dap"
-  },
+  { "mfussenegger/nvim-dap" },
   {
     "anuvyklack/pretty-fold.nvim",
     dependencies = { 'anuvyklack/fold-preview.nvim', 'anuvyklack/keymap-amend.nvim' }
   },
-  {
-    "windwp/nvim-autopairs"
-  },
-  {
-    "rmagatti/auto-session"
-  },
-  {
-    'glepnir/dashboard-nvim',
-    event = 'VimEnter',
-    dependencies = { { 'nvim-tree/nvim-web-devicons' } }
-  },
-  {
-    'nvim-tree/nvim-web-devicons'
-  },
-  {
-    "kdheepak/tabline.nvim"
-  },
+  { "windwp/nvim-autopairs" },
+  { "rmagatti/auto-session" },
+  -- {
+  --   'glepnir/dashboard-nvim',
+  --   event = 'VimEnter',
+  --   dependencies = { { 'nvim-tree/nvim-web-devicons' } }
+  -- },
+  { 'nvim-tree/nvim-web-devicons' },
   {
     "ggandor/leap.nvim",
     dependencies = { "tpope/vim-repeat" },
   },
+  { 'nvim-tree/nvim-tree.lua' },
   {
-    'nvim-tree/nvim-tree.lua'
+    'rcarriga/nvim-notify',
+    opts = {
+      stages = "fade_in_slide_out",
+      render = "compact",
+      timeout = 2000,
+    },
+    init = function()
+      vim.opt.termguicolors = true
+      vim.notify = require('notify')
+    end
   },
   {
     'folke/noice.nvim',
+    config = true,
     dependencies = {
       "MunifTanjim/nui.nvim",
       'rcarriga/nvim-notify',
     },
+    -- config = true
+    -- init = function()
+    --   vim.notify = require('notify')
+    -- end
   },
   { 'akinsho/toggleterm.nvim', version = "*", opts = {} },
-  -- NOTE: First, some plugins that don't require any configuration
+  { 'tpope/vim-sleuth' }, -- Detect tabstop and shiftwidth automatically
 
-  -- Git related plugins
-  -- wip
-
-  -- Detect tabstop and shiftwidth automatically
-  {
-    'tpope/vim-sleuth'
-  },
-
-  -- NOTE: This is where your plugins related to LSP can be installed.
-  --  The configuration is done below. Search for lspconfig to find it below.
   {
     -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',
@@ -108,7 +103,7 @@ local plugins = {
         opts = {},
         cond = function()
           vim.diagnostic.config({
-            -- Setting this to false to avoid dupliarion error messages from lsplines plugin
+            -- Setting this to false to avoid duplication error messages from lsp_lines plugin
             virtual_text = false,
             severity_sort = true
           })
@@ -126,6 +121,7 @@ local plugins = {
   },
 
   {
+    -- replaced with coq.nvim
     -- Autocompletion
     'hrsh7th/nvim-cmp',
     dependencies = { 'hrsh7th/cmp-nvim-lsp',
@@ -137,10 +133,7 @@ local plugins = {
     },
   },
 
-  -- Useful plugin to show you pending keybinds.
-  {
-    'folke/which-key.nvim', opts = {}
-  },
+  { 'folke/which-key.nvim',      opts = {} },
   {
     -- Adds git releated signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
@@ -156,38 +149,23 @@ local plugins = {
     },
   },
 
-  -- [[ colorschemes ]]
-  { -- Theme inspired by Atom
-    'navarasu/onedark.nvim',
-    -- config = function()
-    --   vim.cmd.colorscheme 'onedark'
-    -- end,
-  },
+
   {
+    -- colorschemes
+    -- 'sainnhe/sonokai',
+    -- 'navarasu/onedark.nvim',
     'folke/tokyonight.nvim',
     priority = 1000,
     config = function()
       vim.cmd.colorscheme 'tokyonight-night'
     end,
   },
-  {
-    'sainnhe/sonokai',
-    -- priority = 1000,
-    -- config = function()
-    --   vim.cmd.colorscheme 'sonokai'
-    -- end,
-  },
 
-  {
-    -- Set lualine as statusline
-    -- See `:help lualine.txt`
-    'nvim-lualine/lualine.nvim',
-  },
-
+  { 'nvim-lualine/lualine.nvim', },
+  { "kdheepak/tabline.nvim" },
   {
     -- Add indentation guides even on blank lines
     'lukas-reineke/indent-blankline.nvim',
-    -- Enable `lukas-reineke/indent-blankline.nvim`
     -- See `:help indent_blankline.txt`
     opts = {
       char = '┊',
@@ -195,7 +173,6 @@ local plugins = {
     },
   },
 
-  -- "gc" to comment visual regions/lines
   {
     'numToStr/Comment.nvim',
     dependencies = { "JoosepAlviste/nvim-ts-context-commentstring" },
@@ -207,21 +184,18 @@ local plugins = {
     end
   },
 
-  -- Fuzzy Finder (files, lsp, etc)
   {
+    -- Fuzzy Finder (files, lsp, etc)
     'nvim-telescope/telescope.nvim',
     version = '*',
     dependencies = {
       'nvim-lua/plenary.nvim', 'nvim-telescope/telescope-media-files.nvim', 'nvim-lua/popup.nvim',
-      "rmagatti/auto-session", 'rmagatti/session-lens' }
+      -- "rmagatti/auto-session",
+      -- 'rmagatti/session-lens'
+    }
   },
-  -- Fuzzy Finder Algorithm which requires local dependencies to be built.
-  -- Only load if `make` is available. Make sure you have the system
-  -- requirements installed.
   {
     'nvim-telescope/telescope-fzf-native.nvim',
-    -- NOTE: If you are having trouble with this installation,
-    --       refer to the README for telescope-fzf-native for more instructions.
     build = 'make',
     cond = function()
       return vim.fn.executable 'make' == 1
@@ -240,4 +214,9 @@ local plugins = {
     end,
   },
 }
-require("lazy").setup(plugins)
+local ok, lazy = pcall(require, 'lazy')
+if not ok then
+  print('Lazy nvim failed to load')
+  return
+end
+lazy.setup(plugins)

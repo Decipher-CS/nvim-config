@@ -40,13 +40,13 @@ telescope.setup {
 pcall(require('telescope').load_extension, 'fzf')
 pcall(require('telescope').load_extension, 'notify')
 pcall(require('telescope').load_extension, 'media_files')
-pcall(require('telescope').load_extension, 'session-lens')
-require('session-lens').setup {
-  path_display = { 'shorten' },
-  theme = 'ivy', -- default is dropdown
-  theme_conf = { border = true },
-  previewer = true
-}
+-- pcall(require('telescope').load_extension, 'session-lens')
+-- require('session-lens').setup {
+--   path_display = { 'shorten' },
+--   theme = 'ivy', -- default is dropdown
+--   theme_conf = { border = true },
+--   previewer = true
+-- }
 
 -- See `:help telescope.builtin`
 vim.keymap.set('n', '<leader>sb', require('telescope.builtin').buffers, { desc = '[S]earch existing [B]uffers' })

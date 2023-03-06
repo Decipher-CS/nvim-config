@@ -62,7 +62,7 @@ if not status_neodev_ok or not status_mason_ok or not status_mason_lspconfig_ok 
 	vim.notify('lsp not working', 'warn')
 	return
 end
-local coq = require('coq')
+-- local coq = require('coq')
 neodev.setup()
 mason.setup()
 
@@ -122,7 +122,7 @@ mason_lspconfig.setup_handlers {
 		-- This is the format -> require 'lspconfig'.tsserver.setup {}
 		lspconfig[server_name].setup {
 			capabilities = capabilities,
-			coq.lsp_ensure_capabilities(capabilities),
+			-- coq.lsp_ensure_capabilities(capabilities),
 			on_attach = on_attach,
 			settings = servers[server_name],
 			root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json", "jsconfig.json", ".git", ".gitignore")
@@ -132,8 +132,8 @@ mason_lspconfig.setup_handlers {
 	tsserver = function()
 		lspconfig.tsserver.setup({
 			on_attach = on_attach,
-			-- capabilities = capabilities,
-			coq.lsp_ensure_capabilities(capabilities),
+			capabilities = capabilities,
+			-- coq.lsp_ensure_capabilities(capabilities),
 			initializationoptions = {
 				maxtsservermemory = 500,
 				preferences = {

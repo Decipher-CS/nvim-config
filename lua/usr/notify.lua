@@ -19,8 +19,5 @@ notify.setup({
 	},
 	level = 2,
 	minimum_width = 50,
-	-- render = "compact",
-	stages = "slide",
-	timeout = 2000,
-	top_down = true 
+	top_down = true
 })

@@ -24,8 +24,8 @@ end
 --Remap space as leader key
 keymap("", "<Space>", "<Nop>", opts)
 keymap("", "<K>", "<Nop>", opts)
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+-- vim.g.mapleader = " "
+-- vim.g.maplocalleader = " "
 
 -- Enter normal mode
 keymap("i", "kl", "<ESC>", extend_desc("Exit Insert Mode"))
@@ -84,8 +84,8 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", extend_desc("Move Selected Text Up")
 -- [[ Edit Mode; 'i' ]]
 
 -- delete word under cursor
-keymap("i", "<C-BS>", "<C-w>", extend_desc("Delete from char under cursor to starting of word"))
-keymap("c", "<C-BS>", "<C-w>", extend_desc("Delete from char under cursor to starting of word"))
+-- keymap("i", "<C-BS>", "<C-w>", extend_desc("Delete from char under cursor to starting of word"))
+-- keymap("c", "<C-BS>", "<C-w>", extend_desc("Delete from char under cursor to starting of word"))
 
 
 -- [[ ToggleTerm ]]

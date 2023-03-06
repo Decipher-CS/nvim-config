@@ -1,27 +1,28 @@
 -- [[ Setting options ]]
 -- See `:help vim.o`
-vim.wo.number = true -- Make line numbers default
-vim.wo.signcolumn = 'yes' -- Keep signcolumn on by default
+
+vim.wo.number = true
+vim.wo.signcolumn = "auto"
+
 local options = {
 	hlsearch = false, -- highlight all matches on previous search pattern
 	foldmethod = 'expr', -- try other methods such as syntax, expr, indent. See :h foldmethod
-	foldexpr="nvim_treesitter#foldexpr()",
-	foldlevel=10,
-	sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions", -- What is saved by :mkview
+	foldexpr = "nvim_treesitter#foldexpr()",
+	foldlevel = 10,
+	sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions", -- What is saved by :mkview
 	-- Enable break indent
 	breakindent = true,
 	completeopt = 'menuone,noselect', -- Set completeopt to have a better completion experience
 	-- NOTE: You should make sure your terminal supports this
 
 	backup = false, -- creates a backup file
-	cb= "unnamedplus", -- allows neovim to access the system clipboard
+	cb = "unnamedplus", -- allows neovim to access the system clipboard
 	cmdheight = 4, -- more space in the neovim command line for displaying messages
 	conceallevel = 0, -- so that `` is visible in markdown files
-
 	-- fileencoding gives error??
 	-- fileencoding = "utf-8", -- the encoding written to a file
 	ignorecase = true, -- ignore case in search patterns
-	mouse = "a", -- allow the mouse to be used in neovim
+	mouse = "a",    -- allow the mouse to be used in neovim
 	mouseshape = "a:beam", -- Mouse pointer shape
 	pumheight = 10, -- pop up menu height
 	showmode = false, -- we don't need to see things like -- INSERT -- anymore
@@ -40,13 +41,13 @@ local options = {
 	writebackup = false, -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
 	expandtab = true, -- convert tabs to spaces
 	shiftwidth = 8, -- the number of spaces inserted for each indentation
-	tabstop = 8, -- insert x spaces for a tab
+	tabstop = 8,    -- insert x spaces for a tab
 	cursorline = true, -- highlight the current line
-	number = true, -- set numbered lines
+	number = true,  -- set numbered lines
 	relativenumber = true, -- set relative numbered lines
 	numberwidth = 4, -- set number column width to 2 {default 4}
 	signcolumn = "yes", -- always show the sign column, otherwise it would shift the text each time
-	wrap = true, -- display lines as one long line
+	wrap = true,    -- display lines as one long line
 	scrolloff = 10, -- is one of my fav
 	sidescrolloff = 8,
 	winheight = 2,
