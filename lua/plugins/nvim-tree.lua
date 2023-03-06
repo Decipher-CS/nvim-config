@@ -1,3 +1,6 @@
+return {
+  'nvim-tree/nvim-tree.lua',
+config = function ()
 local status_ok, nvim_tree = pcall(require, "nvim-tree")
 if not status_ok then
 	print('nvim-tree not loaded')
@@ -83,3 +86,5 @@ nvim_tree.setup({
 	sort_by = "case_sensitive",
 	open_on_setup = false,
 })
+        end,
+}
