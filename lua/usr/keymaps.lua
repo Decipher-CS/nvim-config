@@ -84,8 +84,8 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", extend_desc("Move Selected Text Up")
 -- [[ Edit Mode; 'i' ]]
 
 -- delete word under cursor
-keymap("i", "<C-BS>", "<C-W>", extend_desc("Delete from char under cursor to starting of word"))
-keymap("c", "<C-BS>", "<C-W>", extend_desc("Delete from char under cursor to starting of word"))
+keymap("i", "<C-BS>", "<C-w>", extend_desc("Delete from char under cursor to starting of word"))
+keymap("c", "<C-BS>", "<C-w>", extend_desc("Delete from char under cursor to starting of word"))
 
 
 -- [[ ToggleTerm ]]

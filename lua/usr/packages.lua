@@ -14,6 +14,14 @@ vim.opt.rtp:prepend(lazypath)
 -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
 local plugins = {
   {
+'ms-jpq/coq_nvim',
+    -- config = function()
+    --   vim.g.coq_settings = {
+    --     ["auto_start"] = 'shut-up',
+    --   }
+    -- end,
+  },
+  {
     "jackMort/ChatGPT.nvim",
     dependencies = {
       "MunifTanjim/nui.nvim",
