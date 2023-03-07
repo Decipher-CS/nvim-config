@@ -12,11 +12,10 @@ return {
 			opts = {},
 			cond = function()
 				vim.diagnostic.config({
-					-- Setting this to false to avoid duplication error messages from lsp_lines plugin
-					virtual_text = false,
-					severity_sort = true
+					virtual_text = false, -- Setting this to false to avoid duplication error messages from lsp_lines plugin
+					severity_sort = true,
+					-- virtual_text = { severity = { min = vim.diagnostic.severity.INFO } }, -- uncomment to get turn off hints
 				})
-				return true
 			end,
 		},
 
@@ -31,10 +30,10 @@ return {
 		-- [[ Keymaps ]]
 
 		local on_attach = function(client, bufnr)
-			-- if client.name == "tsserver" then
-			-- 	client.server_capabilities.documentFormattingProvider = true
-			-- 	-- client.server_capabilities.completionProvider = true
-			-- end
+			if client.name == "tsserver" then
+				client.server_capabilities.documentFormattingProvider = false
+				-- client.server_capabilities.completionProvider = true
+			end
 			if client.name == "sumneko_lua" then
 				client.server_capabilities.documentFormattingProvider = false
 				-- client.resolved_capabilities.document_formatting = false
@@ -61,7 +60,7 @@ return {
 			nmap('<leader>lw', require('telescope.builtin').lsp_dynamic_workspace_symbols,
 				'[W]orkspace Symbols')
 
-			nmap('<leader>ld', vim.lsp.buf.hover, 'Hover Documentation')
+			nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
 			nmap('<leader>ls', vim.lsp.buf.signature_help, 'Signature Documentation')
 
 			-- Lesser used LSP functionality
@@ -118,6 +117,9 @@ return {
 					on_attach = on_attach,
 					capabilities = capabilities,
 					Lua = {
+						runtime = {
+							version = 'LuaJIT',
+						},
 						diagnostics = {
 							globals = { "vim" },
 							disable = { 'unused-local' }, -- Disable the "unused variable" error
@@ -139,21 +141,25 @@ return {
 
 					on_attach = on_attach,
 					capabilities = capabilities,
-					cmd = { 'typescript-language-server', '--stdio', '--log-level=1' },
+					cmd = { 'typescript-language-server', '--stdio' },
 					settings = {
-						typescript = {
-							format = {
-								semicolons = 'insert',
-							},
-						},
-					},
-					init_options = {
-						preferences = {
-							disableSuggestions = true,
-							fdsasdf = false,
-							quotePreference = "single"
-						}
-					},
+						diagnostics = { ignoredCodes = { 6133 } }
+					}
+					-- settings = {
+					-- 	typescript = {
+					-- 		suggestionAction = false,
+					-- 		format = {
+					-- 			semicolons = 'insert',
+					-- 			indentSize = 2,
+					-- 		},
+					-- 	},
+					-- },
+					-- init_options = {
+					-- 	preferences = {
+					-- 		disableSuggestions = false,
+					-- 		quotePreference = "auto",
+					-- 	}
+					-- },
 				}
 			end,
 		}
@@ -167,7 +173,7 @@ return {
 				-- formatters
 				-- nulls.builtins.formatting.stylua,
 				-- nulls.builtins.formatting.fixjson,
-				-- nulls.builtins.formatting.prettier,
+				nulls.builtins.formatting.prettier,
 				-- nulls.builtins.formatting.eslint_d,
 
 				-- diagnostics

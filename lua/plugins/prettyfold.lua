@@ -1,6 +1,6 @@
 return {
   "anuvyklack/pretty-fold.nvim",
-  enabled = true,
+  enabled = false,
   dependencies = { { 'anuvyklack/fold-preview.nvim', opts = {} }, { 'anuvyklack/keymap-amend.nvim' } },
   opts = {
     sections = {

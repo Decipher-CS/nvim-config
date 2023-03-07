@@ -14,7 +14,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require 'lazy'.setup({
-        {'folke/zen-mode.nvim'},
+        { 'folke/zen-mode.nvim' },
         {
                 -- auto complete stuff
                 'ms-jpq/coq_nvim',
