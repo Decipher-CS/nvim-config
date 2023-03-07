@@ -11,7 +11,7 @@ return {
                         -- Add languages to be installed here that you want installed for treesitter
                         ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'typescript', 'help',
                                 'vim', 'javascript',
-                                'vim', 'regex', 'markdown', 'json', 'markdown_inline', 'bash' },
+                                'vim', 'regex', 'markdown', 'json', 'markdown_inline', 'bash', 'jsonc' },
 
                         sync_install = true,
 

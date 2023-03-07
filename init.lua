@@ -25,11 +25,6 @@ require 'lazy'.setup({
                 end,
         },
         {
-                "anuvyklack/pretty-fold.nvim",
-                enabled = false,
-                dependencies = { 'anuvyklack/fold-preview.nvim', 'anuvyklack/keymap-amend.nvim' }
-        },
-        {
                 "iamcco/markdown-preview.nvim", -- Markdown preview
                 -- build = '',
                 -- cond = function()

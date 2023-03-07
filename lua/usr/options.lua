@@ -16,7 +16,7 @@ local options = {
 	-- NOTE: You should make sure your terminal supports this
 
 	backup = false, -- creates a backup file
-	cb = "unnamedplus", -- allows neovim to access the system clipboard
+	cb = {"unnamedplus", "unnamed"}, -- allows neovim to access the system clipboard
 	cmdheight = 4, -- more space in the neovim command line for displaying messages
 	conceallevel = 0, -- so that `` is visible in markdown files
 	-- fileencoding gives error??
